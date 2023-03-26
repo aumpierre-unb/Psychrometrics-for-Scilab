@@ -1,40 +1,54 @@
 TODO
 ====
-* Reduce time of computation
 
-internal-fluid-flow 0.2.2-alpha (2022-12-31)
-======================================
-* Minor changes
-
-internal-fluid-flow 0.2.1 (2022-12-05)
-======================================
-* Important bug fixed
-
-internal-fluid-flow 0.2.0 (2022-12-03)
-======================================
+inflowlib 0.2.1 (2022-12-15)
+=============================
 * Minor changes on documentation
-* Help comments for internal functions included
-* New functions included
-* Guidelines of temperature of adiabatic saturation included
-* Guidelines of saturation at dry bulb temperature included
-* Psychrometric chart response built
-  from a built-in file (avoid unnecessary computation)
-* Dependency on optim removed
 
-internal-fluid-flow 0.1.2 (2022-11-18)
-======================================
-* Minor changes on documentation
-* Fixed important bug on the main function
-* Major changes to accelerate computation
-* Pkg optim included as dependency
-* Plots upgraded
+inflowlib 0.2.0 (2022-12-15)
+=============================
+* Upgraded functions structure and algorithms
 
-internal-fluid-flow 0.1.1 (2022-11-17)
-======================================
-* Minor changes on documentation
-* Graphical answer made optional
+inflowlib 0.1.2 (2022-09-04)
+=============================
+* Minor adjustments on plots
 
-internal-fluid-flow 0.1.0 (2022-11-15)
-======================================
+inflowlib 0.1.1 (2022-08-27)
+=============================
+* Minor adjustments on plots
+
+inflowlib 0.1.0 (2022-08-20)
+=============================
+* Adoption of semantic versioning (https://semver.org)
+* Laminar/turbulent transition reset from 2.5e3 to 2.3e3
+* Minor corrections on help comments
+* Major changes on code to solve bug on the transitional range
+
+inflowlib 0.0.7 (2022-08-03)
+=============================
+* Spell of "Colebrooke" fixed to "Colebrook"
+* Axes' titles adapted to fit to functions' inputs
+* Help comments of epsfD2Re improved
+* Laminar/turbulent transition reset from 3e3 to 2.5e3
+* Smooth line included to plots
+ 
+inflowlib 0.0.6 (2022-07-28)
+=============================
+* Minor corrections on functions' help comments
+* Minor adjustments on functions' help comments for best shape when paste
+  from Scilab Help to Scilab console
+* Fully turbulent line reset from 1.02 to 1.01 of fully turbulent limit
+ 
+inflowlib 0.0.5 (2022-07-22)
+=============================
+* Spell of "Weisbach" is now correct
+* espfD2Re now computes Reynolds number for laminar flow and/or turbulent flow
+when possible
+* The second input of epsfD2Re and epsRe2fD now is optional with default value
+eps=2e-3
+* Plots now include a complete turbulence line for reference
+ 
+inflowlib 0.0.3 (2022-07-09)
+=============================
 * First release
-* Package under construction
+* Module under construction  
