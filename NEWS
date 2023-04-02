@@ -27,15 +27,15 @@ inflowlib 0.1.0 (2022-08-20)
 inflowlib 0.0.7 (2022-08-03)
 =============================
 * Spell of "Colebrooke" fixed to "Colebrook"
-* Axes' titles adapted to fit to functions' inputs
+* Axes" titles adapted to fit to functions" inputs
 * Help comments of epsfD2Re improved
 * Laminar/turbulent transition reset from 3e3 to 2.5e3
 * Smooth line included to plots
  
 inflowlib 0.0.6 (2022-07-28)
 =============================
-* Minor corrections on functions' help comments
-* Minor adjustments on functions' help comments for best shape when paste
+* Minor corrections on functions" help comments
+* Minor adjustments on functions" help comments for best shape when paste
   from Scilab Help to Scilab console
 * Fully turbulent line reset from 1.02 to 1.01 of fully turbulent limit
  

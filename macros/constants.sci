@@ -1,28 +1,24 @@
-#  Copyright (C) 2022 2023 Alexandre Umpierre
-#
-# This file is part of psychrometrics toolbox.
-# psychrometrics toolbox is free software:
-# you can redistribute it and/or modify it under the terms
-# of the GNU General Public License (GPL) version 3
-# as published by the Free Software Foundation.
-#
-# psychrometrics toolbox is distributed in the hope
-# that it will be useful, but WITHOUT ANY WARRANTY;
-# without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the GNU General Public License for more details.
-#
-# You should have received a copy of the
-# GNU General Public License along with this program
-# (license GNU GPLv3.txt).
-# It is also available at https://www.gnu.org/licenses/.
+// Copyright (C) 2022 2023 Alexandre Umpierre
+// This file is part of psyhrometrics Toolbox.
+// psyhrometrics Toolbox is free software:
+// you can redistribute it and/or modify it under the terms
+// of the GNU General Public License (GPL) version 3
+// as published by the Free Software Foundation.
+// internal-fluid-flow Toolbox is distributed in the hope
+// that it will be useful, but WITHOUT ANY WARRANTY
+// without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU General Public License for more details.
+// You should have received a copy of the
+// GNU General Public License along with this program.
+// It is also available at www.gnu.org/licenses/.
 
-# constants privides
-#  the parameters
-#  for adjusted functions
-#  satPress and dewTemp.
-# constants is part of
-#  the psychrometrics toolbox for GNU Octave.
+// constants privides
+//  the parameters
+//  for adjusted functions
+//  satPress and dewTemp.
+// constants is part of
+//  the psychrometrics toolbox for GNU Octave.
 c=[-5.6745359e3
     6.3925247
    -9.6778430e-3
@@ -40,5 +36,5 @@ c=[-5.6745359e3
    14.526
     0.7389
     0.09486
-    0.4569];
+    0.4569]
 

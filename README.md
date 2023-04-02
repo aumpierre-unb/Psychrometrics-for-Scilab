@@ -1,4 +1,4 @@
-# `psychrometrics` Toolbox for GNU-Octave
+// `psychrometrics` Toolbox for GNU-Octave
 
 [![DOI](https://zenodo.org/badge/565944452.svg)](https://zenodo.org/badge/latestdoi/565944452)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -8,14 +8,14 @@
 
 ![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled2.png "Example of graphical output")
 
-## Installing and Loading `psychrometrics`
+//// Installing and Loading `psychrometrics`
 
 ```dotnetcli
-# e.g. this call installs version 0.2.1
+// e.g. this call installs version 0.2.1
 pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.2.1.tar.gz
 ```
 
-## Citation of `psychrometrics`
+//// Citation of `psychrometrics`
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.7325079](https://doi.org/10.5281/zenodo.7325079).
@@ -25,9 +25,9 @@ This DOI represents all versions, and will always resolve to the latest one.
 
 The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave. This text is divided in two main sections: The Theory and The `psychrometrics` Toolbox.
 
-## The Theory
+//// The Theory
 
-### Psychrometrics
+////// Psychrometrics
 
 Psychrometrics is the field of physics concerned with the thermodynamic properties of a mixture of a condensable vapor and a non condensable gas. The most usual situation in engineering is the mixture of water vapor in the atmospheric air at atmospheric pressure.
 
@@ -41,7 +41,7 @@ Also, alongside with mass and energy transfer coefficients of water vapor, the c
 
 Most psychrometric charts show sets of lines of constant specific volume, constant specific enthalpy and constant wet bulb temperature. Set all together, they produce a fairly complete chart of the thermodynamic state of humid air.
 
-### Saturation & Dew Point
+////// Saturation & Dew Point
 
 Consider a constant pressure control volume filled with humid air only. As temperature decreases, all particles in the system lose energy. Eventually, some particles of water will lose energy ate the point they condensate. At this point, the gaseous mixture contains the maximum possible amount of water particles, it is said to be saturated. In psychrometrics, *saturation* is the condition where the maximum amount of water vapor is in the gaseous phase.
 
@@ -49,7 +49,7 @@ Once pressure is an indirect measure of the number of particles in the system, t
 
 The thermodynamic state where the smallest amount of energy removed from the gaseous phase produces an incipient condensed phase is called *dew point*. Dew point is characterized by the dew point temperature and the saturation pressure.
 
-### Humidity & Relative Humidity
+////// Humidity & Relative Humidity
 
 *Humidity* is the mass ratio of water vapor and dry air. Since both water vapor and dry air are taken as ideal gases, the masses can be replaced by their the partial pressures,
 
@@ -77,7 +77,7 @@ $$
 
 Note that relative humidity is not the ratio of humidity to saturation humidity. This is so because humidities are not fractions.
 
-### Specific Enthalpy & Specific Volume
+////// Specific Enthalpy & Specific Volume
 
 Consider the adiabatic saturation of humid air with water. The amount of water required is the difference of humidity between the saturation and the humid air. The amount of dry gas is unchanged in the process. That is all about material balances. Taking water at the saturation temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the inlet humid air, the inlet water and the outlet saturated air are given by
 
@@ -115,7 +115,7 @@ $$
 
 At room temperature at atmospheric pressure, humidity is closely proportional to dry bulb temperature for constant specific volume, producing fairly straight lines in the psychrometric chart.
 
-### Dry Bulb Temperature & Wet Bulb Temperature
+////// Dry Bulb Temperature & Wet Bulb Temperature
 
 If the gaseous phase in contact with water is not saturated with water vapor, the system is not at thermodynamic equilibrium. By removing sensible heat from its surroundings, some molecules overcome the vaporization heat and escape from the condensed to the gaseous phase. It happens spontaneously increasing the amount of water vapor in the gaseous phase and decreasing the temperature of the system.
 
@@ -151,7 +151,7 @@ $$
 
 Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychrometric chart for constant wet bulb temperature.
 
-### Empirical Equations
+////// Empirical Equations
 
 Equations used in `psychrometrics` toolbox come from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
 
@@ -217,7 +217,7 @@ C=
 \end{bmatrix}
 $$
 
-## The `psychrometrics` Toolbox
+//// The `psychrometrics` Toolbox
 
 `psychrometrics` provides the following functions:
 
@@ -230,7 +230,7 @@ $$
 
 All inputs and outputs of all functions are given in units of the International System.
 
-### `psychro`
+////// `psychro`
 
 `psychro` computes
 
@@ -265,11 +265,11 @@ except the combination of humidity and dew point temperature, which are not inde
 **Syntax:**
 
 ```dotnetcli
-# e.g.
-# given Tdry and W
-# unknowns must be indicated by default value syntax
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(Tdry,:,:,W,:,:,:[,fig=false])
+// e.g.
+// given Tdry and W
+// unknowns must be indicated by default value syntax
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
+psychro(Tdry,W[,fig=%f])
 ```
 
 **Examples:**
@@ -278,61 +278,61 @@ Compute the dry bulb temperature, the wet bulb temperature, the adiabatic satura
 This call computes the answer and omits the psychrometric chart:
 
 ```dotnetcli
-Tdew=22+273.15; # dew point temperature
-phi=.29; # relative humidity
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,Tdew,:,:,:,phi)
+Tdew=22+273.15 // dew point temperature
+phi=.29 // relative humidity
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
+psychro(:,Tdew,phi)
 ```
 
 This call computes the answer and plots a schematic psychrometric chart:
 
 ```dotnetcli
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,22+273.15,:,:,:,.29,true)
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
+psychro(:,22+273.15,.29,true)
 ```
 
 Compute the dry bulb temperature, the wet bulb temperature,
 the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=...
-psychro(:,:,:,:,79.5e3,:,.29,true)
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
+psychro(:,79.5e3,.29,true)
 ```
 
 8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
 
 ```dotnetcli
-# The initial condition is
-Tdry1=293;
-Twet1=288;
-[~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,:,:,:,:,:,true)
+// The initial condition is
+Tdry1=293
+Twet1=288
+[~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,true)
 
-# The thermodynamic state after the first heating is
-Tdry2=323;
-W2=W1;
-[~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,:,:,W2,:,:,:,true)
+// The thermodynamic state after the first heating is
+Tdry2=323
+W2=W1
+[~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,W2,true)
 
-# The thermodynamic state the after first adiabatic saturation is
-h3=h2;
+// The thermodynamic state the after first adiabatic saturation is
+h3=h2
 [Tdry3,W3]=adiabSat(h3)
-[~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,:,:,W3)
+[~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,W3)
 
-# The thermodynamic state after the second heating is
-Tdry4=323;
-W4=W3;
-[~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,:,:,W4,:,:,:,true)
+// The thermodynamic state after the second heating is
+Tdry4=323
+W4=W3
+[~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,W4,true)
 
-# The thermodynamic state the after second adiabatic saturation is
-h5=h4;
+// The thermodynamic state the after second adiabatic saturation is
+h5=h4
 [Tdry5,W5]=adiabSat(h5)
-[~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,:,:,W5)
+[~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,W5)
 
-# The energy and water vapor demands are
-(h5-h1)*(8.5/v1) # demand of energy
-(W5-W1)*(8.5/v1) # demand of water vapor
+// The energy and water vapor demands are
+(h5-h1)*(8.5/v1) // demand of energy
+(W5-W1)*(8.5/v1) // demand of water vapor
 ```
 
-### `humidity`
+////// `humidity`
 
 `humidity` computes
 the humidity of humid air in given the water vapor pressure and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
@@ -348,11 +348,11 @@ the humidity of humid air in given the water vapor pressure and the total pressu
 Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa at 1 atm total pressure.
 
 ```dotnetcli
-pw=1e3; # water vapor pressure in Pa
-W=humidity(pw) # saturation pressure in kg/kg of dry air
+pw=1e3 // water vapor pressure in Pa
+W=humidity(pw) // saturation pressure in kg/kg of dry air
 ```
 
-### `satPress`
+////// `satPress`
 
 `satPress` computes the saturation pressure of humid air given the dry bulb temperature.
 
@@ -367,11 +367,11 @@ W=humidity(pw) # saturation pressure in kg/kg of dry air
 Compute the saturation pressure given the dry bulb temperature is 25 °C.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-psat=satPress(Tdry) # saturation pressure in Pa
+Tdry=25+273.15 // dry bulb temperature in K
+psat=satPress(Tdry) // saturation pressure in Pa
 ```
 
-### `enthalpy`
+////// `enthalpy`
 
 `enthalpy` computes the specific enthalpy of humid air given the dry bulb temperature and the humidity in.
 
@@ -386,12 +386,12 @@ psat=satPress(Tdry) # saturation pressure in Pa
 Compute the specific enthalpy given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-W=7e-3; # humidity in kg/kg of dry air
-h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
+Tdry=25+273.15 // dry bulb temperature in K
+W=7e-3 // humidity in kg/kg of dry air
+h=enthalpy(Tdry,W) // specific enthalpy in J/kg of dry air
 ```
 
-### `volume`
+////// `volume`
 
 `volume` computes computes the specific volume of humid air given  the dry bulb temperature, the humidity in and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
 
@@ -406,19 +406,19 @@ h=enthalpy(Tdry,W) # specific enthalpy in J/kg of dry air
 Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air at 1 atm total pressure.
 
 ```dotnetcli
-Tdry=25+273.15; # dry bulb temperature in K
-W=7e-3; # humidity in kg/kg of dry air
-v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
+Tdry=25+273.15 // dry bulb temperature in K
+W=7e-3 // humidity in kg/kg of dry air
+v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
 ```
 
-### `adiabSat`
+////// `adiabSat`
 
 `adiabSat` computes the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
 ```dotnetcli
-[Tadiab,Wadiab]=adiabSat(h[,fig=false])
+[Tadiab,Wadiab]=adiabSat(h[,fig=%f])
 ```
 
 **Examples:**
@@ -426,24 +426,24 @@ v=volume(Tdry,W) # specific volume in cu. m/kg of dry air
 Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kg of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
 
 ```dotnetcli
-h=82.4e3; # specific enthalpy in J/kg
-[Tadiab,Wadiab]=adiabSat(h,true) # inputs and outputs in SI units
+h=82.4e3 // specific enthalpy in J/kg
+[Tadiab,Wadiab]=adiabSat(h,true) // inputs and outputs in SI units
 ```
 
-### Reference
+////// Reference
 
 The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
 
-### Acknowledgements
+////// Acknowledgements
 
 The author of `psychrometrics` package acknowledges Professor Brent Stephens, Ph.D. from the Illinois Institute of Technology for kindly suggesting the source reference for equations used for this package.
 
-### See Also
+////// See Also
 
 [McCabe-Thiele-for-GNU-Octave](https://github.com/aumpierre-unb/McCabe-Thiele-for-GNU-Octave),
 [Ponchon-Savarit-for-GNU-Octave](https://github.com/aumpierre-unb/Ponchon-Savarit-for-GNU-Octave),
 [Internal-Fluid-Flow-for-GNU-Octave](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
 
-Copyright &copy; 2022 2023 Alexandre Umpierre
+Copyright &copy 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
