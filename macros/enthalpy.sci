@@ -20,10 +20,9 @@ function [h]=enthalpy(Tdry,W)
     // [h]=enthalpy(Tdry,W)
     //
     // Parameters
-    // h: specific enthalpy
-    // fig: optional, boolean for display plot (default is fig=%f)
-    // Tadiab: saturation temperature (in K)
-    // Wadiab:  saturation humidity (in kg/kg of dry air)
+    // Tdry: dry bulb temperature (in K)
+    // W: humidity (in kg/kg of dry air)
+    // h: specific enthalpy (in J/kg of dry air)
     //
     // Description
     // enthalpy computes

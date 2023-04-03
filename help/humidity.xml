@@ -34,7 +34,7 @@
    <variablelist>
         <varlistentry>
             <term>pw:</term>
-            <listitem><para> water vapor pressure (in K)</para></listitem>
+            <listitem><para> water vapor pressure (in Pa)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>p:</term>

@@ -33,16 +33,68 @@
    <title>Parameters</title>
    <variablelist>
         <varlistentry>
-            <term>pw:</term>
+            <term>Tdry:</term>
             <listitem><para> dry bulb temperature (in K)</para></listitem>
         </varlistentry>
         <varlistentry>
-            <term>p:</term>
-            <listitem><para> total pressure (in Pa)</para></listitem>
+            <term>Twet:</term>
+            <listitem><para> wet bulb temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Tdew:</term>
+            <listitem><para> dew point temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Tadiab:</term>
+            <listitem><para> adiabatic saturation temperature (in K)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>W:</term>
             <listitem><para> humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Wsat:</term>
+            <listitem><para> saturation humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Wsatwet:</term>
+            <listitem><para> saturation humidity at wet bulb temperature (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Wadiab:</term>
+            <listitem><para> adiabatic saturation humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>h:</term>
+            <listitem><para> specific enthalpy (in J/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>v:</term>
+            <listitem><para> specific volume (in cu. m/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>phi:</term>
+            <listitem><para> relative humidity</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>pw:</term>
+            <listitem><para> water vapor pressure (in Pa)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>psat:</term>
+            <listitem><para> saturation pressure (in Pa)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>psatwet:</term>
+            <listitem><para> saturation pressure at wet bulb temperature (in Pa)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>rho:</term>
+            <listitem><para> density (in kg/cu. m)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>fig:</term>
+            <listitem><para> optional show plot, default is false</para></listitem>
         </varlistentry>
    </variablelist>
 </refsection>

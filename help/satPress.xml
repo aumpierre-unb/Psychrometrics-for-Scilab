@@ -38,7 +38,7 @@
         </varlistentry>
         <varlistentry>
             <term>psat:</term>
-            <listitem><para> saturation pressure of humid air (in Pa)</para></listitem>
+            <listitem><para> saturation pressure (in Pa)</para></listitem>
         </varlistentry>
    </variablelist>
 </refsection>

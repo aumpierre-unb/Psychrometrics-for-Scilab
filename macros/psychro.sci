@@ -20,9 +20,22 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
     //
     // Parameters
-    // pw: dry bulb temperature (in K)
-    // p: total pressure (in Pa)
+    // Tdry: dry bulb temperature (in K)
+    // Twet: wet bulb temperature (in K)
+    // Tdew: dew point temperature (in K)
+    // Tadiab: adiabatic saturation temperature (in K)
     // W: humidity (in kg/kg of dry air)
+    // Wsat: saturation humidity (in kg/kg of dry air)
+    // Wsatwet: saturation humidity at wet bulb temperature (in kg/kg of dry air)
+    // Wadiab: adiabatic saturation humidity (in kg/kg of dry air)
+    // h: specific enthalpy (in J/kg of dry air)
+    // v: specific volume (in cu. m/kg of dry air)
+    // phi: relative humidity
+    // pw: water vapor pressure (in Pa)
+    // psat: saturation pressure (in Pa)
+    // psatwet: saturation pressure at wet bulb temperature (in Pa)
+    // rho: density (in kg/cu. m)
+    // fig: optional show plot, default is false
     //
     // Description
     // psychro computes
@@ -488,6 +501,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         v=volume(Tdry,W)
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 1 0 0 1 1])
+
         function z=foo(pw)
             z=humidity(pw)-W
         end

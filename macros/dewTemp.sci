@@ -21,7 +21,7 @@ function [Tdew]=dewTemp(pw)
     //
     // Parameters
     // pw: water vapor pressure (in Pa)
-    // Tdew: dew temperature (in K)
+    // Tdew: dew point temperature (in K)
     //
     // Description
     // dewTemp computes

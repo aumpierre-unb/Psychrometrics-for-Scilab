@@ -38,7 +38,7 @@
         </varlistentry>
         <varlistentry>
             <term>Tdew:</term>
-            <listitem><para> dew temperature (in K)</para></listitem>
+            <listitem><para> dew point temperature (in K)</para></listitem>
         </varlistentry>
    </variablelist>
 </refsection>

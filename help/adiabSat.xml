@@ -34,19 +34,19 @@
    <variablelist>
         <varlistentry>
             <term>h:</term>
-            <listitem><para> specific enthalpy</para></listitem>
+            <listitem><para> specific enthalpy (in J/kg of dry air)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>fig:</term>
-            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
+            <listitem><para> optional show plot, default is false</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>Tadiab:</term>
-            <listitem><para> saturation temperature (in K)</para></listitem>
+            <listitem><para> adiabatic saturation temperature (in K)</para></listitem>
         </varlistentry>
         <varlistentry>
             <term>Wadiab:</term>
-            <listitem><para>  saturation humidity (in kg/kg of dry air)</para></listitem>
+            <listitem><para> adiabatic saturation humidity (in kg/kg of dry air)</para></listitem>
         </varlistentry>
    </variablelist>
 </refsection>

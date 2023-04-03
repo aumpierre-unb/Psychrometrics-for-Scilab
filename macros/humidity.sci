@@ -20,7 +20,7 @@ function [W]=humidity(pw,p)
     // [W]=humidity(pw,p)
     //
     // Parameters
-    // pw: water vapor pressure (in K)
+    // pw: water vapor pressure (in Pa)
     // p: total pressure (in Pa)
     // W: humidity (in kg/kg of dry air)
     //

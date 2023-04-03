@@ -20,10 +20,10 @@ function [Tadiab,Wadiab]=adiabSat(h,fig)
     // [Tadiab,Wadiab]=adiabSat(h,fig)
     //
     // Parameters
-    // h: specific enthalpy
-    // fig: optional, boolean for display plot (default is fig=%f)
-    // Tadiab: saturation temperature (in K)
-    // Wadiab:  saturation humidity (in kg/kg of dry air)
+    // h: specific enthalpy (in J/kg of dry air)
+    // fig: optional show plot, default is false
+    // Tadiab: adiabatic saturation temperature (in K)
+    // Wadiab: adiabatic saturation humidity (in kg/kg of dry air)
     //
     // Description
     // adiabSat computes

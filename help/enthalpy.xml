@@ -33,20 +33,16 @@
    <title>Parameters</title>
    <variablelist>
         <varlistentry>
+            <term>Tdry:</term>
+            <listitem><para> dry bulb temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>W:</term>
+            <listitem><para> humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
             <term>h:</term>
-            <listitem><para> specific enthalpy</para></listitem>
-        </varlistentry>
-        <varlistentry>
-            <term>fig:</term>
-            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
-        </varlistentry>
-        <varlistentry>
-            <term>Tadiab:</term>
-            <listitem><para> saturation temperature (in K)</para></listitem>
-        </varlistentry>
-        <varlistentry>
-            <term>Wadiab:</term>
-            <listitem><para>  saturation humidity (in kg/kg of dry air)</para></listitem>
+            <listitem><para> specific enthalpy (in J/kg of dry air)</para></listitem>
         </varlistentry>
    </variablelist>
 </refsection>

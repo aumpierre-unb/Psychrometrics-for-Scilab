@@ -21,7 +21,7 @@ function [psat]=satPress(Tdry)
     //
     // Parameters
     // Tdry: dry bulb temperature (in K)
-    // psat: saturation pressure of humid air (in Pa)
+    // psat: saturation pressure (in Pa)
     //
     // Description
     // satPress computes
