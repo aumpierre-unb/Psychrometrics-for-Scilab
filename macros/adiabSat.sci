@@ -14,9 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tadiab,Wadiab]=adiabSat(h,fig)
-    // adiabSat computes
-    // the saturation temperature and humidity
-    // given the specific entalpy
+    // adiabSat computes the saturation temperature and humidity given the specific entalpy
     //
     // Syntax
     // [Tadiab,Wadiab]=adiabSat(h,fig)

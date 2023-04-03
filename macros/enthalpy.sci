@@ -14,10 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [h]=enthalpy(Tdry,W)
-    // enthalpy computes
-    // the specific enthalpy of humid air given
-    // the dry bulb temperature and
-    // the humidity
+    // enthalpy computes the specific enthalpy of humid air given the dry bulb temperature and the humidity
 
     //
     // Syntax

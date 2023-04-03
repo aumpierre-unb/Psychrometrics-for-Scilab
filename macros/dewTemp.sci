@@ -14,9 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tdew]=dewTemp(pw)
-    // dewTemp computes
-    // the dew temperature of humid air
-    // given water vapor pressure
+    // dewTemp computes the dew temperature of humid air given water vapor pressure
     //
     // Syntax
     // [Tdew]=dewTemp(pw)

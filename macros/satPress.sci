@@ -14,9 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [psat]=satPress(Tdry)
-    // satPress computes
-    // the saturation pressure of humid air given
-    // the dry bulb temperature
+    // satPress computes the saturation pressure of humid air given the dry bulb temperature
     //
     // Syntax
     // [psat]=satPress(Tdry)

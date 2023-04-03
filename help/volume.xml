@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>volume</refname>
-    <refpurpose>volume computes</refpurpose>
+    <refpurpose>volume computes the specific volume of humid air given the dry bulb temperature, the humidity and the total pressure</refpurpose>
   </refnamediv>
 
 

@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>satPress</refname>
-    <refpurpose>satPress computes</refpurpose>
+    <refpurpose>satPress computes the saturation pressure of humid air given the dry bulb temperature</refpurpose>
   </refnamediv>
 
 

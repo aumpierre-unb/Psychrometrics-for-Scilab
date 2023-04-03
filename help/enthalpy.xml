@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>enthalpy</refname>
-    <refpurpose>enthalpy computes</refpurpose>
+    <refpurpose>enthalpy computes the specific enthalpy of humid air given the dry bulb temperature and the humidity</refpurpose>
   </refnamediv>
 
 </refentry>

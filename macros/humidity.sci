@@ -14,10 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [W]=humidity(pw,p)
-    // humidity computes
-    // the humidity W of humid air given
-    // the water vapor pressure and
-    // the total pressure
+    // humidity computes the humidity W of humid air given the water vapor pressure and the total pressure
     //
     // Syntax
     // [W]=humidity(pw,p)

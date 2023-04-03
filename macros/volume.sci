@@ -14,11 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [v]=volume(Tdry,W,p)
-    // volume computes
-    // the specific volume of humid air given
-    // the dry bulb temperature,
-    // the humidity and
-    // the total pressure
+    // volume computes the specific volume of humid air given the dry bulb temperature, the humidity and the total pressure
     //
     // Syntax
     // [v]=volume(Tdry,W,p)

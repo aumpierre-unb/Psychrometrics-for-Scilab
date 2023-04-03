@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>dewTemp</refname>
-    <refpurpose>dewTemp computes</refpurpose>
+    <refpurpose>dewTemp computes the dew temperature of humid air given water vapor pressure</refpurpose>
   </refnamediv>
 
 
