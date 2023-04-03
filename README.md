@@ -245,7 +245,8 @@ $$
 **Syntax:**
 
 ```powershell-interactive
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
+[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
+psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
 ```
 
 **Example:**
