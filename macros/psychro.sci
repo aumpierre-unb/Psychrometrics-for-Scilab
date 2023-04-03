@@ -160,7 +160,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W)
         v=volume(Tdry,W)
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -169,7 +169,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[0 1 0 1 1 1 1])
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
@@ -180,7 +180,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W)
         v=volume(Tdry,W)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -189,7 +189,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[0 1 1 0 1 1 1])
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
@@ -200,7 +200,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W)
         v=volume(Tdry,W)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -209,7 +209,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[0 1 1 1 0 1 1])
         function z=foo(W)
-            h-enthalpy(Tdry,W)
+            z=h-enthalpy(Tdry,W)
         end
         tol=abs(foo(1e-2)/1e3)
         W=newtonraphson(foo,1e-2,tol)
@@ -217,7 +217,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         psat=satPress(Tdry)
         Wsat=humidity(psat)
         function z=foo(pw)
-            humidity(pw)-W
+            z=humidity(pw)-W
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -225,7 +225,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         phi=pw/psat
         Tdew=dewTemp(pw)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -234,7 +234,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[0 1 1 1 1 0 1])
         function z=foo(W)
-            v-volume(Tdry,W)
+            z=v-volume(Tdry,W)
         end
         tol=abs(foo(1e-2)/1e3)
         W=newtonraphson(foo,1e-2,tol)
@@ -242,7 +242,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         psat=satPress(Tdry)
         Wsat=humidity(psat)
         function z=foo(pw)
-            humidity(pw)-W
+            z=humidity(pw)-W
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -250,7 +250,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         phi=pw/psat
         Tdew=dewTemp(pw)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -265,7 +265,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Tdew=dewTemp(pw)
         W=humidity(pw)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry)/1e3)
         Twet=newtonraphson(foo,Tdry,tol)
@@ -278,13 +278,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         psatwet=satPress(Twet)
         Wsatwet=humidity(psatwet)
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         W=humidity(pw)
         function z=foo(Tdry)
-            W-humidity2(Wsatwet,Tdry,Twet)
+            z=W-humidity2(Wsatwet,Tdry,Twet)
         end
         tol=abs(foo(Twet)/1e3)
         Tdry=newtonraphson(foo,Twet,tol)
@@ -298,13 +298,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         psatwet=satPress(Twet)
         Wsatwet=humidity(psatwet)
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(psatwet)/1e3)
         pw=newtonraphson(foo,psatwet,tol)
         Tdew=dewTemp(pw)
         function z=foo(Tdry)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Twet)/1e3)
         Tdry=newtonraphson(foo,Twet,tol)
@@ -319,14 +319,14 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsatwet=humidity(psatwet)
         Tdry=Twet
         function z=foo(W)
-            h-enthalpy(Tdry,W)
+            z=h-enthalpy(Tdry,W)
         end
         tol=abs(foo(Wsatwet)/1e3)
         W=newtonraphson(foo,Wsatwet,tol)
         while W<humidity2(Wsatwet,Tdry,Twet)
             Tdry=Tdry+5e-3
             function z=foo(W)
-                h-enthalpy(Tdry,W)
+                z=h-enthalpy(Tdry,W)
             end
             tol=abs(foo(Wsatwet)/1e3)
             W=newtonraphson(foo,Wsatwet,tol)
@@ -336,7 +336,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         v=volume(Tdry,W)
         rho=(1+Wsatwet)/v
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -347,14 +347,14 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsatwet=humidity(psatwet)
         Tdry=Twet
         function z=foo(W)
-            v-volume(Tdry,W)
+            z=v-volume(Tdry,W)
         end
         tol=abs(foo(Wsatwet)/1e3)
         W=newtonraphson(foo,Wsatwet,tol)
         while W>humidity2(Wsatwet,Tdry,Twet)
             Tdry=Tdry+5e-3
             function z=foo(W)
-                v-volume(Tdry,W)
+                z=v-volume(Tdry,W)
             end
             tol=abs(foo(Wsatwet)/1e3)
             W=newtonraphson(foo,Wsatwet,tol)
@@ -364,7 +364,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W)
         rho=(1+Wsatwet)/v
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -378,7 +378,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsat=humidity(psat)
         W=humidity2(Wsatwet,Tdry,Twet)
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(psat)/1e3)
         pw=newtonraphson(foo,psat,tol)
@@ -388,7 +388,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
             Wsat=humidity(psat)
             W=humidity2(Wsatwet,Tdry,Twet)
             function z=foo(pw)
-                W-humidity(pw)
+                z=W-humidity(pw)
             end
             tol=abs(foo(psat)/1e3)
             pw=newtonraphson(foo,psat,tol)
@@ -401,13 +401,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         phi=pw/psat
     elseif and(a==[1 1 0 0 1 1 1])
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         w=humidity(pw)
         function z=foo(pw)
-            humidity(pw)-W
+            z=humidity(pw)-W
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
@@ -415,13 +415,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         error("Dew point temperature and humidity\nare not independent variables.\nFor %g kg/kg humidity, one has\n%g K dew point temperature, and\nfor %g K dew point temperature, one has\n%g kg/kg humidity.",W,tdew,Tdew,w)
     elseif and(a==[1 1 0 1 0 1 1])
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         W=humidity(pw)
         function z=foo(Tdry)
-            h-enthalpy(Tdry,W)
+            z=h-enthalpy(Tdry,W)
         end
         tol=abs(foo(Tdew)/1e3)
         Tdry=newtonraphson(foo,Tdew,tol)
@@ -430,7 +430,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         v=volume(Tdry,W)
         Wsat=humidity(psat)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -439,13 +439,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 0 1 1 0 1])
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         W=humidity(pw)
         function z=foo(Tdry)
-            v-volume(Tdry,W)
+            z=v-volume(Tdry,W)
         end
         tol=abs(foo(Tdew)/1e3)
         Tdry=newtonraphson(foo,Tdew,tol)
@@ -454,7 +454,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         h=enthalpy(Tdry,W)
         Wsat=humidity(psat)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry)/1e3)
         Twet=newtonraphson(foo,Tdry,tol)
@@ -463,12 +463,12 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 0 1 1 1 0])
         function z=foo(pw)
-            dewTemp(pw)-Tdew
+            z=dewTemp(pw)-Tdew
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         function z=foo(Tdry)
-            phi-pw/satPress(Tdry)
+            z=phi-pw/satPress(Tdry)
         end
         tol=abs(foo(Tdew)/1e3)
         Tdry=newtonraphson(foo,Tdew,tol)
@@ -476,7 +476,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsat=humidity(psat)
         W=humidity(pw)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -487,13 +487,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 1 0 0 1 1])
         function z=foo(pw)
-            humidity(pw)-W
+            z=humidity(pw)-W
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         Tdew=dewTemp(pw)
         function z=foo(Tdry)
-            h-enthalpy(Tdry,W)
+            z=h-enthalpy(Tdry,W)
         end
         tol=abs(foo(Tdew)/1e3)
         Tdry=newtonraphson(foo,Tdew,tol)
@@ -502,7 +502,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsat=humidity(psat)
         phi=pw/psat
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -511,13 +511,13 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 1 0 1 0 1])
         function z=foo(pw)
-            humidity(pw)-W
+            z=humidity(pw)-W
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
         Tdew=dewTemp(pw)
         function z=foo(Tdry)
-            v-volume(Tdry,W)
+            z=v-volume(Tdry,W)
         end
         tol=abs(foo(Tdew)/1e3)
         Tdry=newtonraphson(foo,Tdew,tol)
@@ -526,7 +526,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsat=humidity(psat)
         phi=pw/psat
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry)/1e3)
         Twet=newtonraphson(foo,Tdry,tol)
@@ -535,7 +535,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         rho=(1+Wsatwet)/v
     elseif and(a==[1 1 1 0 1 1 0])
         function z=foo(Tdry)
-            W-humidity(phi*satPress(Tdry))
+            z=W-humidity(phi*satPress(Tdry))
         end
         tol=abs(foo(50+273.15)/1e3)
         Tdry=newtonraphson(foo,50+273.15,tol)
@@ -546,7 +546,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         v=volume(Tdry,W)
         Tdew=dewTemp(pw)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
@@ -557,7 +557,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         W=1e-2
         dW=W
         function z=foo(Tdry)
-            v-volume(Tdry,W)
+            z=v-volume(Tdry,W)
         end
         tol=abs(foo(50+273.15)/1e3)
         Tdry=newtonraphson(foo,50+273.15,tol)
@@ -569,12 +569,12 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
                 dW=dW/2
             end
             function z=foo(Tdry)
-                v-volume(Tdry,W)
+                z=v-volume(Tdry,W)
             end
             Tdry=newtonraphson(foo,50+273.15,tol)
         end
         function z=foo(pw)
-            W-humidity(pw)
+            z=W-humidity(pw)
         end
         tol=abs(foo(1e3)/1e3)
         pw=newtonraphson(foo,1e3,tol)
@@ -583,7 +583,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Wsat=humidity(psat)
         phi=pw/psat
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry)/1e3)
         Twet=newtonraphson(foo,Tdry,tol)
@@ -633,12 +633,12 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         function [y,Tdry,psat]=foobaz(pw,v,phi)
             W=humidity(pw)
             function z=foo(Tdry)
-                v-volume(Tdry,W)
+                z=v-volume(Tdry,W)
             end
             tol=abs(foo(50+273.15)/1e3)
             Tdry=newtonraphson(foo,50+273.15,tol)
             function z=foo(psat)
-                psat-satPress(Tdry)
+                z=psat-satPress(Tdry)
             end
             tol=abs(foo(pw)/1e3)
             psat=newtonraphson(foo,pw,tol)
@@ -660,7 +660,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         Tdew=dewTemp(pw)
         Wsat=humidity(psat)
         function z=foo(Twet)
-            W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
+            z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
         tol=abs(foo(Tdry-1)/1e3)
         Twet=newtonraphson(foo,Tdew,tol)
