@@ -1,449 +1,395 @@
-// `psychrometrics` Toolbox for GNU-Octave
+# Internal Fluid Flow
 
-[![DOI](https://zenodo.org/badge/565944452.svg)](https://zenodo.org/badge/latestdoi/565944452)
+[![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-GNU-Octave)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-Scilab)
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled1.png "Example of graphical output")
+## Install and load Internal Fluid Flow Toolbox for Scilab
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/blob/main/pics/untitled2.png "Example of graphical output")
+1\. Download ```v0.2.1.zip``` file from [Releases](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab/releases).
 
-//// Installing and Loading `psychrometrics`
+2\. Set Scilab current directory to the download folder.
+
+3\. To install and load the toolbox, type:
 
 ```dotnetcli
-// e.g. this call installs version 0.2.1
-pkg install https://github.com/aumpierre-unb/Psychrometrics-for-GNU-Octave/archive/refs/tags/v0.2.1.tar.gz
+atomsInstall('v0.2.1.zip'),..
+atomsLoad('inflowlib')
 ```
 
-//// Citation of `psychrometrics`
+## Citation of Internal Fluid Flow Toolbox for Scilab
 
 You can cite all versions (both released and pre-released), by using
-[DOI 105281/zenodo.7325079](https://doi.org/10.5281/zenodo.7325079).
+[DOI 105281/zenodo.6927994](https://doi.org/10.5281/zenodo.6927994).
+
 This DOI represents all versions, and will always resolve to the latest one.
+
+To cite the last released version, please check
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Internal-Fluid-Flow-for-Scilab.
 
 ---
 
-The following is a very short introduction to psychrometrics and to the `psychrometrics` toolbox for GNU Octave. This text is divided in two main sections: The Theory and The `psychrometrics` Toolbox.
+The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for Scilab.
 
-//// The Theory
+Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this toolbox. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
-////// Psychrometrics
+This text is divided in two main sections: The Theory and The Internal Fluid Flow Toolbox for Scilab.
 
-Psychrometrics is the field of physics concerned with the thermodynamic properties of a mixture of a condensable vapor and a non condensable gas. The most usual situation in engineering is the mixture of water vapor in the atmospheric air at atmospheric pressure.
+## The Theory
 
-A psychrometric chart is a two dimensional diagram used for engineers to predict the thermodynamical state of humid air. In most cases, engineers are concerned with the properties of mixtures of water vapor and atmospheric air at atmospheric pressure. The prediction of the properties of such systems are mandatory for a series of industrial processes related to humidification and dehumidification as well as with air-conditioning processes.
+### The Bernoulli Equation
 
-The basic readings from a psychrometric chart are the thermodynamic temperature and the humidity. Humidity is the mass ratio of water vapor to dry air.
+The Bernoulli equation is an expression of the mechanical energy balance for a very particular situation:
 
-Alongside with thermochemical properties of water vapor and dry air, the material and energy balances allow to calculate the specific enthalpy and the specific volume of the system using some equation of state. The ideal gas equations of state is usually used since water vapor and dry air present negligible deviation from ideality at room temperature.
+- internal steady flow of an
+- incompressible inviscid fluid, where
+- friction effects and tube fittings can be neglected.
 
-Also, alongside with mass and energy transfer coefficients of water vapor, the combined mass and energy transfer phenomena allow to calculate the temperature of a thin layer of liquid water providing water vapor to the gaseous mixture. This temperature is refereed to as wet bulb temperature, while the thermodynamic temperature is refereed to as dry bulb temperature.
-
-Most psychrometric charts show sets of lines of constant specific volume, constant specific enthalpy and constant wet bulb temperature. Set all together, they produce a fairly complete chart of the thermodynamic state of humid air.
-
-////// Saturation & Dew Point
-
-Consider a constant pressure control volume filled with humid air only. As temperature decreases, all particles in the system lose energy. Eventually, some particles of water will lose energy ate the point they condensate. At this point, the gaseous mixture contains the maximum possible amount of water particles, it is said to be saturated. In psychrometrics, *saturation* is the condition where the maximum amount of water vapor is in the gaseous phase.
-
-Once pressure is an indirect measure of the number of particles in the system, the amount of particles in the gaseous phase is indirectly refereed to as saturation pressure.
-
-The thermodynamic state where the smallest amount of energy removed from the gaseous phase produces an incipient condensed phase is called *dew point*. Dew point is characterized by the dew point temperature and the saturation pressure.
-
-////// Humidity & Relative Humidity
-
-*Humidity* is the mass ratio of water vapor and dry air. Since both water vapor and dry air are taken as ideal gases, the masses can be replaced by their the partial pressures,
+For such a case, the mechanical energy is conserved, and for any two points 1 and 2 we have
 
 $$
-W = 0.621945 {p_{vap} \over {p - p_{vap}}}
+{\rho v_2^2 \over 2} + \rho g z_2 + p_2 =
+{\rho v_1^2 \over 2} + \rho g z_1 + p_1
 $$
 
 or
 
 $$
-{1 \over {p - p_{vap}}} = {\displaystyle{1+{W \over 0.621945}} \over p}
+{v_2^2 \over 2g}+z_2+{p_2 \over \rho g}=
+{v_1^2 \over 2g}+z_1+{p_1 \over \rho g}
 $$
 
-where $p$ is the total pressure and $p_{vap}$ is the partial pressure of water vapor. Here, the total pressure is the atmospheric pressure at sea level, 101325 Pa. Analogously, the humidity of saturated air is the saturation humidity,
+where
+
+- *&rho;* is the fluid's density,
+- *v* is the flow speed,
+- *g* is the gravitational acceleration,
+- *z* is the elevation, and
+- *p* is the static pressure.
+
+### Head Loss
+
+The flow of viscous fluids is accompanied of energy dispersion, which can be measured as pressure drop or, equivalently, as head loss *h*, by the Darcy-Weisbach equation,
 
 $$
-W_{sat} = 0.621945 {p_{sat} \over {p-p_{sat}}}
+h=f{v^2 \over 2g} {L \over D}
 $$
 
-*Relative humidity* is the material ratio of water vapor to the water vapor at saturation,
+where *f* is the Darcy friction factor, *L* is the pipe's length and *D* is the pipe's hydraulic diameter,
 
 $$
-\phi = {p_{vap} \over p_{sat}}
+D={4A \over P}
 $$
 
-Note that relative humidity is not the ratio of humidity to saturation humidity. This is so because humidities are not fractions.
-
-////// Specific Enthalpy & Specific Volume
-
-Consider the adiabatic saturation of humid air with water. The amount of water required is the difference of humidity between the saturation and the humid air. The amount of dry gas is unchanged in the process. That is all about material balances. Taking water at the saturation temperature as reference for enthalpy, the enthalpies per mass of dry air, or *specific enthalpy*, of the inlet humid air, the inlet water and the outlet saturated air are given by
+where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-section. *f* is described as a function of the Reynolds number,
 
 $$
-h = c_{dry}\ (T - T_{sat}) + W\ (c_{vap}\ (T - T_{sat}) + \lambda_{sat})
+Re={\rho vg \over \mu}
 $$
 
-$$
-h_{liq} = c_{liq}\ (W_{sat} - w)\ (T_{liq} - T_{sat})
-$$
+and the pipe's relative roughness,
 
 $$
-h_{sat} = \lambda_{sat}\ W_{sat}
+\varepsilon={k \over D}
 $$
 
-where $c_{dry}$ and $c_{vap}$ are the heat capacities of the dry gas and of water vapor and $\lambda_{sat}$ is the vaporization latent heat at the saturation temperature. All together, the energy balance gives
+where
+
+- *&mu;* is the fluid's dynamic viscosity and
+- *k* is the pipe's[ internal surface] roughness.
+
+The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness *&epsilon;* completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and *&epsilon;*.
+
+The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
+
+### Laminar Flow and Turbulent Flow
+
+For laminar flow, *Re* < 2,300 (typically), the Darcy friction factor is given by the Poiseuille condition,
 
 $$
-{{W - W_{sat}} \over {T - T_{sat}}} = {c \over {-\lambda_{sat} + c_{vap}\ (T_{liq} - T_{sat})}}
+f={64 \over Re}
 $$
 
-where $c$ is the heat capacity of the inlet humid air,
+For turbulent flow, *Re* > 2,300 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
-c = c_{dry} + c_{vap}\ (W_{sat} - W)
+{1 \over \sqrt{f}}=2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
-As the vaporization latent heat is usually much higher than the sensible heat, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature for constant specific enthalpy, producing fairly straight lines in the psychrometric chart.
+## The Internal Fluid Flow Toolbox for Scilab
 
-The volume of the gaseous mixture per mass of dry air, or *specific volume*, is given by
+Internal Fluid Flow provides the following functions:
 
-$$
-v = {\displaystyle{nRT_{dry} \over p} \over {m_{dry}}} = R_{air}T_{dry} {\displaystyle{1+{W \over 0.621945}} \over p}
-$$
+- epsRe2fD
+- epsfD2Re
+- hDeps2fDRe
+- hveps2fDRe
+- hQeps2fDRe
+- hvthk2fDRe
+- hQthk2fDRe
 
-At room temperature at atmospheric pressure, humidity is closely proportional to dry bulb temperature for constant specific volume, producing fairly straight lines in the psychrometric chart.
+### epsRe2fD
 
-////// Dry Bulb Temperature & Wet Bulb Temperature
-
-If the gaseous phase in contact with water is not saturated with water vapor, the system is not at thermodynamic equilibrium. By removing sensible heat from its surroundings, some molecules overcome the vaporization heat and escape from the condensed to the gaseous phase. It happens spontaneously increasing the amount of water vapor in the gaseous phase and decreasing the temperature of the system.
-
-The temperature in the surroundings of the evaporating molecules is the *wet bulb temperature*. This is so because of the construction of the simplest apparatus to indirectly read the air humidity, composed of two bulb thermometers, one in direct contact with the gaseous phase and one in contact with a thin layer of water in contact with the gaseous phase. The temperature of the wet bulb is affected by the evaporation of water from the thin layer to the gaseous phase. The temperature of the gaseous phase is the *dry bulb temperature*, read at the dry bulb.
-
-The spontaneous heat and mass transfer phenomena are given by
-
-$$
-q = h\ (T - T_{wet})
-$$
-
-$$
-N = k\ (p_{wet} - p_{vap})
-$$
-
-where $h$ and $k$ are the heat and mass transfer coefficients, $p_{wet}$ is the saturation pressure at the wet bulb temperature and $p_{vap}$ is water vapor pressure of the gaseous phase. In most cases, both pressures are much smaller than the total pressure, so the mass flux can be approximate to
-
-$$
-N = k^*\ (W_{wet} - W)
-$$
-
-where $k^*$ is a mass transfer coefficient. The energy removed from water adjacent to the wet bulb is used to evaporate part of that water
-
-$$
-q = N\ \lambda_{wet}
-$$
-
-where $\lambda_{wet}$ is the heat of vaporization at the wet bulb temperature. Combining mass and energy transfer phenomena, one has
-
-$$
-{{W - W_{wet}} \over {T - T_{wet}}} = -{h \over {\lambda_{wet}\ k^*}}
-$$
-
-Therefore, the variation of humidity in the gaseous phase is closely proportional to its variation in temperature, producing fairly straight lines in the psychrometric chart for constant wet bulb temperature.
-
-////// Empirical Equations
-
-Equations used in `psychrometrics` toolbox come from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
-
-For ice in the range -100 °C to 0 °C, the water vapor pressure in equilibrium with pure ice is given by
-
-$$
-\ln p_{sat}^* = {C_1 \over T} + C_2 + C_3\ T + C_4\ T^2 + C_5\ T^3 + C_6\ T^4 + C_7 \ln T
-$$
-
-and for water in the range 0 °C to 200 °C, the water vapor pressure in equilibrium with pure water is given by
-
-$$
-\ln p_{sat}^* = {C_8 \over T} + C_9 + C_{10}\ T + C_{11}\ T^2 + C_{12}\ T^3 + C_{13} \ln T
-$$
-
-where $p^*_{sat}$ is given in Pa and dry bulb temperature $T$, in K.
-
-As the saturation of air in ice and water is negligible, the water vapor pressure over pure ice or water is almost the same as the saturation pressure over ice or water when there is air in the gaseous phase.
-
-The specific volume and the specific enthalpy (volume and enthalpy of the gaseous phase per unit of mass of dry air) are given by
-
-$$
-v = {{0.287042\ (t_{dry} + 273.15)\ (1 + 1.607858\ W)} \over p}
-$$
-
-$$
-h = 1.006\ t_{dry} + W\ (2501 + 1.86\ t_{dry})
-$$
-
-with $v$ given in m<sup>3</sup>/kg of dry air, $h$ in kJ/kg, dry bulb temperature $t_{dry}$ in °C, $W$ in kg/kg<sub>dry</sub>, and total pressure $p$ in kPa.
-
-Dew point is given by
-
-$$
-t_{dew} = C_{14} + C_{15}\ \alpha + C_{16}\ \alpha^2 + C_{17}\ \alpha^3 + C_{18}\ p_{vap}^{0.1984}
-$$
-
-where $\alpha = ln\ p_{vap}$, with water vapor pressure $p_{vap}$ given in kPa and dew point temperature $t_{dew}$ in °C. The parameters for the equations used in `psychrometrics` toolbox are
-
-$$
-C=
-\begin{bmatrix}
-    \begin{align*}
-        -5&.6745359 \times 10^3 \\
-        6&.3925247 \\
-       -9&.6778430 \times 10^{-3} \\
-        6&.2215701 \times 10^{-7} \\
-        2&.0747825 \times 10^{-9} \\
-       -9&.4840240 \times 10^{-13} \\
-        4&.1635019 \\
-       -5&.8002206 \times 10^3 \\
-        1&.3914993 \\
-       -4&.8640239 \times 10^{-2} \\
-        4&.1764768 \times 10^{-5} \\
-       -1&.4452093 \times 10^{-8} \\
-        6&.5459673 \\
-        6&.54 \\
-       14&.526 \\
-        0&.7389 \\
-        0&.09486 \\
-        0&.4569 \\
-    \end{align*}
-\end{bmatrix}
-$$
-
-//// The `psychrometrics` Toolbox
-
-`psychrometrics` provides the following functions:
-
-- `psychro`
-- `humidity`
-- `satPress`
-- `enthalpy`
-- `volume`
-- `adiabSat`
-
-All inputs and outputs of all functions are given in units of the International System.
-
-////// `psychro`
-
-`psychro` computes
-
-- the dry bulb temperature,
-- the wet bulb temperature,
-- the dew point temperature,
-- the adiabatic saturation temperature,
-- the humidity,
-- the saturation humidity,
-- the saturation humidity at wet bulb temperature,
-- the adiabatic saturation humidity,
-- the specific enthalpy,
-- the specific volume,
-- the relative humidity,
-- the water vapor pressure,
-- the saturation pressure, the saturation
-- pressure at wet bulb temperature and
-- the density
-
-given any two of the following input arguments:
-
-- the dry bulb temperature,
-- the wet bulb temperature,
-- the dew point temperature,
-- the humidity,
-- the specific enthalpy,
-- the specific volume or
-- the relative humidity,
-
-except the combination of humidity and dew point temperature, which are not independent. If a different number of inputs is given, execution will be aborted. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+epsRe2fD computes the Darcy friction factor *f* given the relative roughness *&epsilon;* and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
 
 **Syntax:**
 
 ```dotnetcli
-// e.g.
-// given Tdry and W
-// unknowns must be indicated by default value syntax
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-psychro(Tdry,W[,fig=%f])
+[f]=epsRe2fD(Re,[eps[,s]])
 ```
 
-**Examples:**
-
-Compute the dry bulb temperature, the wet bulb temperature, the adiabatic saturation temperature, the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the dew point temperature is 22 °C and the relative humidity is 29 %.
-This call computes the answer and omits the psychrometric chart:
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044:
 
 ```dotnetcli
-Tdew=22+273.15 // dew point temperature
-phi=.29 // relative humidity
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-psychro(:,Tdew,phi)
+f=epsRe2fD(2.5e4,4.4e-3,%f)
 ```
 
-This call computes the answer and plots a schematic psychrometric chart:
+or
 
 ```dotnetcli
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-psychro(:,22+273.15,.29,true)
+Re=2.5e4,eps=4.4e-3,f=epsRe2fD(Re,eps)
 ```
 
-Compute the dry bulb temperature, the wet bulb temperature,
-the dew point temperature, adiabatic saturation temperature, the dew point temperature the humidity, the saturation humidity, the saturation humidity at wet bulb temperature, the adiabatic saturation humidity, the specific enthalpy, the specific volume, the relative humidity, the water vapor pressure, the saturation pressure, the saturation pressure at wet bulb temperature and the density given the specific enthalpy is 79.5 kJ/kg of dry air and the relative humidity is 29 % and plot a graphical representation of the answer in a schematic psychrometric chart.
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
 
 ```dotnetcli
-[Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-psychro(:,79.5e3,.29,true)
+f=epsRe2fD(2.5e4,4.4e-3,%t)
 ```
 
-8.5 cubic meters of humid air at dry bulb temperature of 293 K and wet bulb temperature of 288 K is subjected to two cycles of heating to 323 K followed by adiabatic saturation. Compute the energy and water vapor demands. Assume the amount of dry air is constant.
+*e.g.* Compute the Darcy friction factor *f* given the Reynolds number *Re*=25,000:
 
 ```dotnetcli
-// The initial condition is
-Tdry1=293
-Twet1=288
-[~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,true)
-
-// The thermodynamic state after the first heating is
-Tdry2=323
-W2=W1
-[~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,W2,true)
-
-// The thermodynamic state the after first adiabatic saturation is
-h3=h2
-[Tdry3,W3]=adiabSat(h3)
-[~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,W3)
-
-// The thermodynamic state after the second heating is
-Tdry4=323
-W4=W3
-[~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,W4,true)
-
-// The thermodynamic state the after second adiabatic saturation is
-h5=h4
-[Tdry5,W5]=adiabSat(h5)
-[~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,W5)
-
-// The energy and water vapor demands are
-(h5-h1)*(8.5/v1) // demand of energy
-(W5-W1)*(8.5/v1) // demand of water vapor
+f=epsRe2fD(2.5e4)
 ```
 
-////// `humidity`
+### epsfD2Re
 
-`humidity` computes
-the humidity of humid air in given the water vapor pressure and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
+espfD2Re computes the Reynolds number *Re* given the relative roughness *&epsilon;* and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
+
+$$
+{1 \over \sqrt{f}}<2\ \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7}}
+$$
+
+(which is Colebrook-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, espfD2Re returns both answers. If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. If given *&epsilon;* > 0.05, execution is aborted.
 
 **Syntax:**
 
 ```dotnetcli
-[W]=humidity(pw[,p=101325])
+[Re]=epsfD2Re(f[,eps[,s]])
 ```
 
-**Examples:**
-
-Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa at 1 atm total pressure.
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044:
 
 ```dotnetcli
-pw=1e3 // water vapor pressure in Pa
-W=humidity(pw) // saturation pressure in kg/kg of dry air
+Re=epsfD2Re(3.3e-2,4.4e-3,%f)
 ```
 
-////// `satPress`
+or
 
-`satPress` computes the saturation pressure of humid air given the dry bulb temperature.
+```dotnetcli
+f=3.3e-2,eps=4.4e-3,Re=epsfD2Re(f,eps)
+```
+
+*e.g.* Compute the Reynolds *Re* number given the Darcy friction factor *f* = 0.033 and the relative roughness *&epsilon;* = 0.0044 and plot a representation of the solution on a schematic Moody diagram:
+
+```dotnetcli
+Re=epsfD2Re(3.3e-2,4.4e-3,%t)
+```
+
+*e.g.* Compute the Reynolds number factor *f* given the Darcy friction *f* = 0.033:
+
+```dotnetcli
+Re=epsfD2Re(3.3e-2)
+```
+
+### hDeps2fDRe
+
+hDeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness *&epsilon;* and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing flow speed *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+
+$$
+Re^2 f={2gh\rho^2D^3 \over {\mu^2 L}}
+$$
+
+Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively, however an analytic solution is possible in this case.
 
 **Syntax:**
 
 ```dotnetcli
-[psat]=satPress(Tdry)
+[Re,f]=hDeps2fDRe(h,g,mu,rho,D,L,eps[,s])
 ```
 
-**Examples:**
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-Compute the saturation pressure given the dry bulb temperature is 25 °C.
+the head loss *h* = 0.40 m,
+
+the gravitational acceleration *h* = 9.81 m/s/s,
+
+the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L, and
+
+the pipe's hydraulic diameter *D*=10 (cm), length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
-Tdry=25+273.15 // dry bulb temperature in K
-psat=satPress(Tdry) // saturation pressure in Pa
+[Re,fD]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%f)
 ```
 
-////// `enthalpy`
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-`enthalpy` computes the specific enthalpy of humid air given the dry bulb temperature and the humidity in.
+```dotnetcli
+[Re,f]=hDeps2fDRe(40,981,8.9e-3,0.98,10,2.5e3,2.5e-3,%t)
+```
+
+### hveps2fDRe
+
+hveps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+
+$$
+{f \over Re}={2gh\mu \over {v^3\rho L}}
+$$
+
+Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
 **Syntax:**
 
 ```dotnetcli
-[h]=enthalpy(Tdry,W)
+[Re,f]=hveps2fDRe(h,g,mu,rho,v,L,eps[,s])
 ```
 
-**Examples:**
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-Compute the specific enthalpy given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air.
+the head loss *h* = 0.40 m,
+
+the gravitational acceleration *g* = 9.81 m/s/s,
+
+the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L,
+
+the flow speed *v* = 1.1 m/s, and
+
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
-Tdry=25+273.15 // dry bulb temperature in K
-W=7e-3 // humidity in kg/kg of dry air
-h=enthalpy(Tdry,W) // specific enthalpy in J/kg of dry air
+[Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%f)
 ```
 
-////// `volume`
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-`volume` computes computes the specific volume of humid air given  the dry bulb temperature, the humidity in and the total pressure. By default, total pressure is assumed to be the atmospheric pressure at sea level.
+```dotnetcli
+[Re,f]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%t)
+```
+
+### hQeps2fDRe
+
+hQeps2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness *&epsilon;*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+
+$$
+{Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
+$$
+
+Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
 **Syntax:**
 
 ```dotnetcli
-[v]=volume(Tdry,W[,p=101325])
+[Re,f]=hQeps2fDRe(h,g,mu,rho,Q,L,eps[,s])
 ```
 
-**Examples:**
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-Compute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air at 1 atm total pressure.
+the head loss *h* = 0.40 m,
+
+the gravitational acceleration *g* = 9.81 m/s/s,
+
+the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L,
+
+the volumetric flow rate *Q* = 8.6 L/s, and
+
+the pipe's length *L* = 25 m and relative roughness *&epsilon;* = 0.0025:
 
 ```dotnetcli
-Tdry=25+273.15 // dry bulb temperature in K
-W=7e-3 // humidity in kg/kg of dry air
-v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
+[Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%f)
 ```
 
-////// `adiabSat`
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-`adiabSat` computes the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy. If *fig* = *true* is given, a schematic psychrometric chart is plotted as a graphical representation of the solution.
+```dotnetcli
+[Re,f]=hQeps2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-3,%t)
+```
+
+### hvthk2fDRe
+
+hvthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the flow speed *v*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
+
+$$
+{f \over Re}={2gh\mu \over {v^3\rho L}}
+$$
+
+Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
 **Syntax:**
 
 ```dotnetcli
-[Tadiab,Wadiab]=adiabSat(h[,fig=%f])
+[Re,f]=hvthk2fDRe(h,g,mu,rho,v,L,thk[,s])
 ```
 
-**Examples:**
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
 
-Compute the the adiabatic saturation temperature and the adiabatic saturation humidity given the specific enthalpy is 82.4 kJ/kg of dry air and plot a graphical representation of the answer in a schematic psychrometric chart.
+the head loss *h* = 0.40 m,
+
+the gravitational acceleration *g* = 9.81 m/s/s,
+
+the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L,
+
+the flow speed *v* = 1.1 m/s, and
+
+the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
 
 ```dotnetcli
-h=82.4e3 // specific enthalpy in J/kg
-[Tadiab,Wadiab]=adiabSat(h,true) // inputs and outputs in SI units
+[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%f)
 ```
 
-////// Reference
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
 
-The theory and the adjusted equations used in this package were taken from the first chapter of the *2017 ASHRAE Handbook Fundamentals Systems - International Metric System*, published by the American Society of Heating, Refrigerating and Air-Conditioning Engineers.
+```dotnetcli
+[Re,f]=hvthk2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-2,%t)
+```
 
-////// Acknowledgements
+### hQthk2fDRe
 
-The author of `psychrometrics` package acknowledges Professor Brent Stephens, Ph.D. from the Illinois Institute of Technology for kindly suggesting the source reference for equations used for this package.
+hQthk2fDRe computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density *&rho;* and dynamic viscosity *&mu;*. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
 
-////// See Also
+$$
+{Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
+$$
 
-[McCabe-Thiele-for-GNU-Octave](https://github.com/aumpierre-unb/McCabe-Thiele-for-GNU-Octave),
-[Ponchon-Savarit-for-GNU-Octave](https://github.com/aumpierre-unb/Ponchon-Savarit-for-GNU-Octave),
-[Internal-Fluid-Flow-for-GNU-Octave](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
+Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
-Copyright &copy 2022 2023 Alexandre Umpierre
+**Syntax:**
+
+```dotnetcli
+[Re,f]=hQthk2fDRe(h,g,mu,rho,Q,L,thk[,s])
+```
+
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given
+
+the head loss *h* = 0.40 m,
+
+the gravitational acceleration *g* = 9.81 m/s/s,
+
+the fluid's the dynamic viscosity *&mu;* = 0.89 cP and density *&rho;* = 0.98 kg/L,
+
+the volumetric flow rate *Q* = 8.6 L/s, and
+
+the pipe's length *L* = 25 m and roughness *k* = 0.25 mm:
+
+```dotnetcli
+[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%f)
+```
+
+*e.g.* Compute the Reynolds number *Re* and the Darcy friction factor *f* given the same inputs and plot a representation of the solution on a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hQthk2fDRe(40,981,8.9e-3,0.98,8.6e3,2.5e3,2.5e-2,%t)
+```
+
+Copyright &copy; 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
