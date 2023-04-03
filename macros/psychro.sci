@@ -14,10 +14,25 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
-    // humidity computes
-    // the humidity W of humid air given
-    // the water vapor pressure and
-    // the total pressure
+    // psychro computes
+    // the dry bulb temperature,
+    // the wet bulb temperature,
+    // the dew point temperature,
+    // the adiabatic saturation temperature,
+    // the humidit,
+    // the saturation humidity,
+    // the saturation humidity at the wet bulb temperature,
+    // the adiabatic saturation humidity,
+    // the specific enthalpy,
+    // the specific volume,
+    // the the relative humidity,
+    // the water vapor pressure,
+    // the water saturation pressure,
+    // the saturation pressure at the wet bulb temperature and
+    // the density given
+    // any two input arguments,
+    // except the combination of water vapor pressure and
+    // dew point temperature, which are not independent
     //
     // Syntax
     // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
