@@ -20,7 +20,7 @@ atomsLoad('psychrometrics')
 ## Citation of `psychrometrics` Toolbox for Scilab
 
 You can cite all versions (both released and pre-released), by using
-[DOI 105281/zenodo.6927994](https://doi.org/10.5281/zenodo.6927994).
+[DOI 105281/zenodo.6927994](https://doi.org/10.5281/zenodo.7796323).
 
 This DOI represents all versions, and will always resolve to the latest one.
 
