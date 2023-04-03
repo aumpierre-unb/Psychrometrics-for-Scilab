@@ -92,11 +92,11 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // The thermodynamic state the after first adiabatic saturation is
     // Tdry2=323
     // W2=W1
-    // [Tdry2,Twet2,Tdew2,Tadiab2,W2,Wsat2,Wsatwet2,Wadiab2,h2,v2,phi2,pw2,psat2,psatwet2,rho]2=psychro(Tdry2,W2,true)
+    // [Tdry2,Twet2,Tdew2,Tadiab2,W2,Wsat2,Wsatwet2,Wadiab2,h2,v2,phi2,pw2,psat2,psatwet2,rho2]=psychro(Tdry2,W2,true)
     // // The thermodynamic state the after first adiabatic saturation is
     // h3=h2
     // [Tdry3,W3]=adiabSat(h3)
-    // [~,~,~,~,~,~,~,~,~,v3]=psychro(Tdry3,W3)
+    // [Tdry3,Twet3,Tdew3,Tadiab3,W3,Wsat3,Wsatwet3,Wadiab3,h3,v3,phi3,pw3,psat3,psatwet3,rho3]=psychro(Tdry3,W3)
     //
     // // The thermodynamic state after the second heating is
     // Tdry4=323
