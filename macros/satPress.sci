@@ -14,25 +14,43 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [psat]=satPress(Tdry)
-    // Syntax:
+    // satPress computes
+    // the saturation pressure of humid air given
+    // the dry bulb temperature
     //
+    // Syntax
     // [psat]=satPress(Tdry)
     //
-    // satPress computes
-    //  the saturation pressure psat (in pa)
-    //  of humid air given
-    //  the dry bulb temperature Tdry (in K).
-    // satPress is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // Parameters
+    // Tdry: dry bulb temperature (in K)
+    // psat: saturation pressure of humid air (in Pa)
     //
-    // Examples:
+    // Description
+    // satPress computes
+    // the saturation pressure psat (in pa)
+    // of humid air given
+    // the dry bulb temperature Tdry (in K).
+    // satPress is a main function of
+    // the psychrometrics toolbox for Scilab.
+    //
+    // Examples
     // // Compute the saturation pressure given
     // // the dry bulb temperature is 25 °C.
-    //
     // Tdry=25+273.15 // dry bulb temperature in K
     // psat=satPress(Tdry) // saturation pressure in Pa
     //
-    // See also: psychro, humidity, enthalpy, volume, adiabSat.
+    // Tdry=25+273.15 // dry bulb temperature in K
+    // W=7e-3 // humidity in kg/kg of dry air
+    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
+    //
+    // See also
+    //  psychro
+    //  dewTemp
+    //  humidity
+    //  enthalpy
+    //  volume
+    //  adiabSat
+
     exec(get_absolute_file_path()+"constants.sci",-1)
     if -100<=Tdry-273.15 & Tdry-273.15<0
         k=c(1)/Tdry+..

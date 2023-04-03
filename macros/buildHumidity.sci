@@ -14,17 +14,14 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [T,W]=buildHumidity(phi)
-    // Syntax:
-    //
-    // buildHumidity(phi)
-    //
     // buildHumidity generates a two column matrix of
-    //  humidity and dry bulb temperature
-    //  with given constant relative humidity phi.
+    // humidity and dry bulb temperature
+    // with given constant relative humidity phi.
     // By default, constant relative humidity curves
-    //  are ploted with black solid thin lines.
+    // are ploted with black solid thin lines.
     // buildHumidity is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the psychrometrics toolbox for Scilab.
+
     T1=273.15
     function z=foo(T2)
         z=.03-humidity(satPress(T2)*phi)

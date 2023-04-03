@@ -14,14 +14,11 @@
 // It is also available at www.gnu.org/licenses/.
 
 function buildChart()
-    // Syntax:
-    //
-    // buildChart()
-    //
     // buildChart computes data for
-    //  a schematic psychrometric chart.
+    // a schematic psychrometric chart.
     // buildChart is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the psychrometrics toolbox for Scilab.
+
     uv=[]
     [T,W]=buildVolume(.78),uv=[uv T W]
     [T,W]=buildVolume(.80),uv=[uv T W]

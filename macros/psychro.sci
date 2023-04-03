@@ -14,70 +14,46 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
-    // Syntax:
-    // e.g.
-    // given Tdry and W
-    // unknowns must be indicated by default value syntax
-    // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-    // psychro(Tdry:,W[,fig=%f])
+    // humidity computes
+    // the humidity W of humid air given
+    // the water vapor pressure and
+    // the total pressure
     //
+    // Syntax
+    // [W]=humidity(pw,p)
+    //
+    // Parameters
+    // pw: dry bulb temperature (in K)
+    // p: total pressure (in Pa)
+    // W: humidity (in kg/kg of dry air)
+    //
+    // Description
     // psychro computes
-    //  the dry bulb temperature Tdry (in K),
-    //  the wet bulb temperature Twet (in K),
-    //  the dew point temperature Tdew (in K),
-    //  the adiabatic saturation temperature Tadiab (in K),
-    //  the humidit W (in kg/kg of dry air),
-    //  the saturation humidity Wsat (in kg/kg of dry air),
-    //  the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
-    //  the adiabatic saturation humidity Wadiab (in kg/kg of dry air),
-    //  the specific enthalpy h (in J/kg of dry air),
-    //  the specific volume v (in cu. m/kg of dry air),
-    //  the the relative humidity phi,
-    //  the water vapor pressure pw (in Pa),
-    //  the water saturation pressure psat (in Pa),
-    //  the saturation pressure at the wet bulb temperature psatwet (in Pa) and
-    //  the density rho (in kg/cu. m) given
-    //  any two input arguments,
-    //  except the combination of water vapor pressure and
-    //  dew point temperature, which are not independent.
-    // Unknowns must be indicated by default value syntax.
+    // the dry bulb temperature Tdry (in K),
+    // the wet bulb temperature Twet (in K),
+    // the dew point temperature Tdew (in K),
+    // the adiabatic saturation temperature Tadiab (in K),
+    // the humidit W (in kg/kg of dry air),
+    // the saturation humidity Wsat (in kg/kg of dry air),
+    // the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
+    // the adiabatic saturation humidity Wadiab (in kg/kg of dry air),
+    // the specific enthalpy h (in J/kg of dry air),
+    // the specific volume v (in cu. m/kg of dry air),
+    // the the relative humidity phi,
+    // the water vapor pressure pw (in Pa),
+    // the water saturation pressure psat (in Pa),
+    // the saturation pressure at the wet bulb temperature psatwet (in Pa) and
+    // the density rho (in kg/cu. m) given
+    // any two input arguments,
+    // except the combination of water vapor pressure and
+    // dew point temperature, which are not independent.
     // If fig = true is given, a schematic psychrometric chart
-    //  is plotted as a graphical representation
-    //  of the solution.
+    // is plotted as a graphical representation
+    // of the solution.
     // psychro is a main function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the psychrometrics toolbox for Scilab.
     //
-    // Examples:
-    // // Compute the dry bulb temperature,
-    // // the wet bulb temperature,
-    // // the dew point temperature,
-    // // the adiabatic saturation temperature,
-    // // the humidity,
-    // // the saturation humidity,
-    // // the saturation humidity at wet bulb temperature,
-    // // the adiabatic saturation humidity,
-    // // the specific enthalpy,
-    // // the specific volume,
-    // // the relative humidity,
-    // // the water vapor pressure,
-    // // the saturation pressure,
-    // // the saturation pressure at wet bulb temperature and
-    // // the density given
-    // // the dew point temperature is 22 °C and
-    // // the relative humidity is 29 %.
-    //
-    // // This call computes the answer and
-    // // omits the psychrometric chart:
-    // Tdew=22+273.15 // dew point temperarture in K
-    // phi=.29 // relative humidity
-    // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-    // psychro(:,Tdew,phi)
-    //
-    // // This call computes the answer and
-    // // plots a schematic psychrometric chart:
-    // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
-    // psychro(:,22+273.15,.29,true) // inputs and outputs in SI units
-    //
+    // Examples
     // // Compute the dry bulb temperature,
     // // the wet bulb temperature,
     // // the dew point temperature,
@@ -97,7 +73,6 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // the relative humidity is 29 // and
     // // plot a graphical representation of the
     // // answer in a schematic psychrometric chart.
-    //
     // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
     // psychro(:,79.5e3,.29,true) // inputs and outputs in SI units
     //
@@ -112,12 +87,12 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // The initial condition is
     // Tdry1=293
     // Twet1=288
-    // [~,~,~,~,W1,~,~,~,h1,v1]=psychro(Tdry1,Twet1,true)
+    // [Tdry1,Twet1,Tdew1,Tadiab1,W1,Wsat1,Wsatwet1,Wadiab1,h1,v1,phi1,pw1,psat1,psatwet1,rho1]=psychro(Tdry1,Twet1,true)
     //
     // // The thermodynamic state the after first adiabatic saturation is
     // Tdry2=323
     // W2=W1
-    // [~,~,~,~,~,~,~,~,h2,v2]=psychro(Tdry2,W2,true)
+    // [Tdry2,Twet2,Tdew2,Tadiab2,W2,Wsat2,Wsatwet2,Wadiab2,h2,v2,phi2,pw2,psat2,psatwet2,rho]2=psychro(Tdry2,W2,true)
     // // The thermodynamic state the after first adiabatic saturation is
     // h3=h2
     // [Tdry3,W3]=adiabSat(h3)
@@ -126,11 +101,11 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // The thermodynamic state after the second heating is
     // Tdry4=323
     // W4=W3
-    // [~,~,~,~,~,~,~,~,h4,v4]=psychro(Tdry4,W4,true)
+    // [Tdry4,Twet4,Tdew4,Tadiab4,W4,Wsat4,Wsatwet4,Wadiab4,h4,v4,phi4,pw4,psat4,psatwet4,rho4]=psychro(Tdry4,W4,true)
     // // The thermodynamic state the after second adiabatic saturation is
     // h5=h4
     // [Tdry5,W5]=adiabSat(h5)
-    // [~,~,~,~,~,~,~,~,~,v5]=psychro(Tdry5,W5)
+    // [Tdry5,Twet5,Tdew5,Tadiab5,W5,Wsat5,Wsatwet5,Wadiab5,h5,v5,phi5,pw5,psat5,psatwet5,rho5]=psychro(Tdry5,W5)
     //
     // // The energy demand is
     // (h5-h1)*(8.5/v1) // demand of energy
@@ -138,7 +113,17 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // The water vapor demand is
     // (W5-W1)*(8.5/v1) // demand of water vapor
     //
-    // See also: humidity, satPress, enthalpy, volume, adiabSat.
+    // Tdry=25+273.15 // dry bulb temperature in K
+    // W=7e-3 // humidity in kg/kg of dry air
+    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
+    //
+    // See also
+    //  dewTemp
+    //  humidity
+    //  satPress
+    //  enthalpy
+    //  volume
+    //  adiabSat
 
     if ~exists("Tdry","local") then
         Tdry=-1

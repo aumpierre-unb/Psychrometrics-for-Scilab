@@ -14,26 +14,41 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tdew]=dewTemp(pw)
-    // Syntax:
+    // dewTemp computes
+    // the dew temperature of humid air
+    // given water vapor pressure
     //
+    // Syntax
     // [Tdew]=dewTemp(pw)
     //
+    // Parameters
+    // pw: water vapor pressure (in Pa)
+    // Tdew: dew temperature (in K)
+    //
+    // Description
     // dewTemp computes
-    //  the dew point temperature Tdew (in K)
-    //  of humid air given
-    //  the water vapor pressure pw (in Pa).
-    // dewTemp is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the dew temperature of humid air Tdew (in K)
+    // given the water vapor pressure pw (in Pa).
+    // dewTemp is a main function of
+    // the psychrometrics toolbox for Scilab.
     //
-    // Examples:
-    // // Compute the dew temperature
-    // // of humid air given
-    // // the water vapor pressure is 1 kPa.
-    //
+    // Examples
+    // // Compute the dew temperature T given
+    // // the water vapor pressure pw 1 kPa.
     // pw=1e3 // water vapor pressure in Pa
-    // Tdew=dewTemp(pw) // dew temperature at K
+    // Tdew=dewTemp(pw) // dew temperature in K
     //
-    // See also: psychro, humidity, satPress, enthalpy, volume.
+    // See also
+    //  psychro
+    //  humidity
+    //  satPress
+    //  enthalpy
+    //  volume
+    //  adiabSat
+    //
+    // Authors
+    //  Alexandre Umpierre
+
     exec(get_absolute_file_path()+"constants.sci",-1)
     alpha=log(pw/1000)
     Tdew=c(14)+..

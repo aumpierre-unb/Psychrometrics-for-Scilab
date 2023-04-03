@@ -14,18 +14,14 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [W]=humidity2(Wsatwet,Tdry,Twet)
-    // Syntax:
-    //
-    // [W]=humidity2(Wsatwet,Tdry,Twet)
-    //
     // humidity2 computes
-    //  the humidity W (in kg/kg of dry air)
-    //  of humid air given
-    //  the saturation humidity Wsatwet (in kg/kg of dry air) at wet bulb temperature,
-    //  the dry bulb temperature Tdry (in K) and
-    //  the wet bulb temperature Twet (in K).
+    // the humidity of humid air given
+    // the saturation humidity at wet bulb temperature,
+    // the dry bulb temperature and
+    // the wet bulb temperature.
     // humidity2 is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the psychrometrics toolbox for Scilab
+
     W=((2501-2.326*(Twet-273.15))*Wsatwet-1.006*(Tdry-Twet))/ ..
     (2501+1.86*(Tdry-273.15)-4.186*(Twet-273.15))
 end

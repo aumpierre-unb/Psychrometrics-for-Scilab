@@ -14,17 +14,14 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [T,W]=buildEnthalpy(h)
-    // Syntax:
-    //
-    // buildEnthalpy(h)
-    //
     // buildEnthalpy generates a two column matrix of
-    //  humidity and dry bulb temperature
-    //  with given constant specific enthalpy h (in J/kg).
+    // humidity and dry bulb temperature
+    // with given constant specific enthalpy h (in J/kg).
     // By default, constant specific enthalpy curves
-    //  are ploted with red dash-doted thin lines.
+    // are ploted with red dash-doted thin lines.
     // buildEnthalpy is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the psychrometrics toolbox for Scilab.
+
     function z=foo(T1)
         z=h-enthalpy(T1,humidity(satPress(T1)))
     end

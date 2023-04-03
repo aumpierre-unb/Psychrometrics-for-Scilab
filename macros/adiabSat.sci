@@ -14,100 +14,46 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tadiab,Wadiab]=adiabSat(h,fig)
-    // hveps2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor based on
-    // the flow speed and
-    // the pipe"s relative roughness
+    // adiabSat computes
+    // the saturation temperature and humidity
+    // given the specific entalpy
     //
     // Syntax
-    // [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps,[,fig])
+    // [Tadiab,Wadiab]=adiabSat(h[,fig])
     //
     // Parameters
-    // h: head loss
-    // g: gravitational acceleration
-    // mu: fluid"s dynamic viscosity
-    // rho: fluid"s density
-    // v: flow speed
-    // L: pipe"s length
-    // eps: pipe"s relative roughness
+    // h: specific enthalpy
     // fig: optional, boolean for display plot (default is fig=%f)
-    // Re: Reynolds number
-    // fD: Darcy friction factor
+    // Tadiab: saturation temperature (in K)
+    // Wadiab:  saturation humidity (in kg/kg of dry air)
     //
     // Description
-    // hQthk2fDRe computes
-    // the Reynolds number and
-    // the Darcy friction factor for a internal fluid flow given 
-    // the head loss h, 
-    // the gravitational acceleration g, 
-    // the fluid"s dynamic viscosity mu and density rho, and 
-    // the flow speed v, and
-    // the pipe"s length L and relative roughness eps.
-    // Inputs are to be given in a consistent system of units.
+    // adiabSat computes
+    // the saturation temperature Tadiab (in K)
+    // and humidity Wadiab (in kg/kg of dry air)
+    // given the specific entalpy h (in J/kg of dry air).
+    // If the optional argument fig = %t is given,
+    // a schematic psychrometric chart pops up with
+    // a graphical representation of the stationary state.
+    // adiabSat is a main function of
+    // the psychrometrics toolbox for Scilab.
     //
     // Examples
-    // // Compute the Reynolds number Re and
-    // // the Darcy friction factor fD given
-    // // the head loss h=40 cm,
-    // // the gravitational acceleration g=981 cm/s/s,
-    // // the fluid"s the dynamic viscosity mu=8.9e-3 g/cm/s and
-    // // density rho=0.98 g/cc,
-    // // the flow speed v=1.1e2 cm/s and
-    // // the pipe"s length L=2.5e3 cm and
-    // // relative roughness eps=2.5e-3:
-    // //
-    // // This call computes Re e fD:
-    // [Re,fD]=hveps2fDRe(40,981,8.9e-3,0.98,1.1e2,2.5e3,2.5e-3,%f)
-    // // Alternatively:
-    // h=40.. //head loss (cm)
-    // g=981.. //gravitational acceleration (cm/s/s)
-    // mu=8.9e-3.. //fluid"s dynamic viscosity (g/cm/s)
-    // rho=0.98.. //fluid"s density (g/cc)
-    // v=50.. //flow speed (cm/s)
-    // L=2.5e3.. //pipe"s length (cm)
-    // eps=2.5e-3.. //pipe"s relative roughness
-    // [Re,fD]=hveps2fDRe(h,g,mu,rho,v,L,eps)
-    // // This call computes Re e fD
-    // // and plots a representation of the solution
-    // // on a schematic Moody diagram:
-    // [Re,fD]=hveps2fDRe(40,981,8.9e-3,0.98,50,2.5e3,2.5e-3,%t)
-    // // Compute the Reynolds number Re and
-    // // the Darcy friction factor fD given
-    // // the head loss h=40 cm,
-    // // the gravitational acceleration g=981 cm/s/s,
-    // // the fluid"s the dynamic viscosity mu=8.9e-3 g/cm/s and
-    // // density rho=0.98 g/cc,
-    // // the flow speed v=20 cm/s and
-    // // the pipe"s length L=2.5e3 cm and
-    // // relative roughness eps=0.005:
-    // //
-    // // This call computes Re e fD
-    // // and plots a representation of the solution
-    // // on a schematic Moody diagram:
-    // [Re,fD]=hveps2fDRe(40,981,8.9e-3,0.98,20,2.5e3,0.005,%t)
-    // // Compute the Reynolds number Re and
-    // // the Darcy friction factor fD given
-    // // the head loss h=40 cm,
-    // // the gravitational acceleration g=981 cm/s/s,
-    // // the fluid"s the dynamic viscosity mu=8.9e-3 g/cm/s and
-    // // density rho=0.98 g/cc,
-    // // the flow speed v=26 cm/s and
-    // // the pipe"s length L=2.5e3 cm and
-    // // relative roughness eps=0.005:
-    // //
-    // // This call computes Re e fD
-    // // and plots a representation of the solution
-    // // on a schematic Moody diagram:
-    // [Re,fD]=hveps2fDRe(40,981,8.9e-3,0.98,26,2.5e3,0.005,%t)
+    // // Compute the temperature T
+    // // and the humidity W
+    // // at saturation condition given
+    // // the specific enthalpy 82.4 kJ/kg of dry air
+    // // and plot results:
+    // h=82.4e3; # specific enthalpy in J/kg
+    // [T,W]=adiabSat(h,true) # inputs and outputs in SI units
     //
     // See also
-    //  epsfD2Re
-    //  epsRe2fD
-    //  hDeps2fDRe
-    //  hvthk2fDRe
-    //  hQeps2fDRe
-    //  hQthk2fDRe
+    //  psychro
+    //  dewTemp
+    //  humidity
+    //  satPress
+    //  enthalpy
+    //  volume
     //
     // Authors
     //  Alexandre Umpierre

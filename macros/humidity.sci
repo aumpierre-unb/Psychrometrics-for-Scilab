@@ -14,31 +14,51 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [W]=humidity(pw,p)
-    // Syntax:
-    //
-    // [W]=humidity(pw[,p])
-    //
     // humidity computes
-    //  the humidity W (in kg/kg of dry air)
-    //  of humid air given
-    //  the water vapor pressure pw (in Pa) and
-    //  the total pressure p (in Pa).
-    // By default, total pressure is assumed
-    //  to be the atmospheric pressure
-    //  at sea level (p = 101325).
-    // humidity is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the humidity W of humid air given
+    // the water vapor pressure and
+    // the total pressure
     //
-    // Examples:
+    // Syntax
+    // [W]=humidity(pw,p)
+    //
+    // Parameters
+    // pw: water vapor pressure (in K)
+    // p: total pressure (in Pa)
+    // W: humidity (in kg/kg of dry air)
+    //
+    // Description
+    // humidity computes
+    // the humidity W (in kg/kg of dry air)
+    // of humid air given
+    // the water vapor pressure pw (in Pa) and
+    // the total pressure p (in Pa).
+    // By default, total pressure is assumed
+    // to be the atmospheric pressure
+    // at sea level (p = 101325).
+    // humidity is a main function of
+    // the psychrometrics toolbox for Scilab.
+    //
+    // Examples
     // // Compute the humidity of humid air
     // // at atmospheric pressure given
     // // water vapor pressure is 1 kPa
     // // at 1 atm total pressure.
-    //
     // pw=1e3 // water vapor pressure in Pa
     // W=humidity(pw) // saturation pressure in kg/kg of dry air
     //
-    // See also: psychro, satPress, enthalpy, volume, adiabSat.
+    // Tdry=25+273.15 // dry bulb temperature in K
+    // W=7e-3 // humidity in kg/kg of dry air
+    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
+    //
+    // See also
+    //  psychro
+    //  dewTemp
+    //  satPress
+    //  enthalpy
+    //  volume
+    //  adiabSat
+
     if ~exists("p","local") then
         p=101325
     end

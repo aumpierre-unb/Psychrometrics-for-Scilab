@@ -14,23 +14,35 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [v]=volume(Tdry,W,p)
-    // Syntax:
-    //v 
-    // [v]=volume(Tdry,W[,p])
-    //
     // volume computes
-    //  the specific volume (in cu. m/kg of dry air)
-    //  of humid air given
-    //  the dry bulb temperature Tdry (in K),
-    //  the humidity W (in kg/kg of dry air) and
-    //  the total pressure p (in Pa).
-    // By default, total pressure is assumed
-    //  to be the atmospheric pressure
-    //  at sea level (p = 101325).
-    // volume is an internal function of
-    //  the psychrometrics toolbox for GNU Octave.
+    // the specific volume of humid air given
+    // the dry bulb temperature,
+    // the humidity and
+    // the total pressure
     //
-    // Examples:
+    // Syntax
+    // [v]=volume(Tdry,W,p)
+    //
+    // Parameters
+    // Tdry: dry bulb temperature (in K)
+    // W: humidity (in kg/kg of dry air)
+    // p: total pressure (in Pa)
+    // v: specific volume (in cu. m/kg of dry air)
+    //
+    // Description
+    // volume computes
+    // the specific volume (in cu. m/kg of dry air)
+    // of humid air given
+    // the dry bulb temperature Tdry (in K),
+    // the humidity W (in kg/kg of dry air) and
+    // the total pressure p (in Pa).
+    // By default, total pressure is assumed
+    // to be the atmospheric pressure
+    // at sea level (p = 101325).
+    // volume is a main function of
+    // the psychrometrics toolbox for Scilab.
+    //
+    // Examples
     // // Compute the specific volume given
     // // the dry bulb temperature is 25 °C and
     // // the humidity is 7 g/kg of dry air
@@ -40,7 +52,14 @@ function [v]=volume(Tdry,W,p)
     // W=7e-3 // humidity in kg/kg of dry air
     // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
     //
-    // See also: psychro, humidity, satPress, enthalpy, adiabSat.
+    // See also
+    //  psychro
+    //  dewTemp
+    //  humidity
+    //  satPress
+    //  enthalpy
+    //  adiabSat
+
     if ~exists("p","local") then
         p=101325
     end

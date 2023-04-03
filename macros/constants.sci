@@ -14,11 +14,12 @@
 // It is also available at www.gnu.org/licenses/.
 
 // constants privides
-//  the parameters
-//  for adjusted functions
-//  satPress and dewTemp.
+// the parameters
+// for adjusted functions
+// satPress and dewTemp.
 // constants is part of
-//  the psychrometrics toolbox for GNU Octave.
+// the psychrometrics toolbox for Scilab.
+
 c=[-5.6745359e3
     6.3925247
    -9.6778430e-3
