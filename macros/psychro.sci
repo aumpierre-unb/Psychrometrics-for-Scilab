@@ -123,6 +123,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     //  volume
     //  adiabSat
 
+    warning("off")
     if ~exists("Tdry","local") then
         Tdry=-1
     end
@@ -703,4 +704,5 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         gca().data_bounds=[0+273.15 60+273.15 0 .03]
         gcf().figure_size=[600,600]
     end
+    warning("on")
 end
