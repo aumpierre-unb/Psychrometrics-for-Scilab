@@ -13,4 +13,16 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
-exec(get_absolute_file_path()+"etc\"+"psychrometrics.start");
+path=get_absolute_file_path()
+path=strncpy(path,length(path)-length("etc\"))
+genlib("prychrometrics",path+"macros")
+
+//chdir(path+"macros")
+//help_from_sci(path+"macros",path+"help")
+
+chdir(path)
+mkdir("jar")
+jcreatejar(path+"jar\scilab_en_US_help.jar",..
+           path+"help")
+
+add_help_chapter("Psychrometrics",path+"jar")
