@@ -43,8 +43,8 @@ function [v]=volume(Tdry,W,p)
     // // the dry bulb temperature is 25 °C and
     // // the humidity is 7 g/kg of dry air
     // // at 1 atm total pressure:
-    // Tdry=25+273.15 // dry bulb temperature in K
-    // W=7e-3 // humidity in kg/kg of dry air
+    // Tdry=25+273.15; // dry bulb temperature in K
+    // W=7e-3; // humidity in kg/kg of dry air
     // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
     //
     // See also

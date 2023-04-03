@@ -20,4 +20,81 @@
     <refpurpose>enthalpy computes the specific enthalpy of humid air given the dry bulb temperature and the humidity</refpurpose>
   </refnamediv>
 
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [h]=enthalpy(Tdry,W)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>h:</term>
+            <listitem><para> specific enthalpy</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>fig:</term>
+            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Tadiab:</term>
+            <listitem><para> saturation temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Wadiab:</term>
+            <listitem><para>  saturation humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+enthalpy computes
+the specific enthalpy h (in J/kg of dry air)
+of humid air given
+the dry bulb temperature Tdry (in K) and
+the humidity W (in kg/kg of dry air).
+enthalpy is a main function of
+the psychrometrics toolbox for Scilab.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Compute the specific enthalpy given
+// the dry bulb temperature is 25 °C and
+// the humidity is 7 g/kg of dry air:
+Tdry=25+273.15; // dry bulb temperature in K
+W=7e-3; // humidity in kg/kg of dry air
+h=enthalpy(Tdry,W) // specific enthalpy in J/kg of dry air
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="psychro">psychro</link></member>
+   <member><link linkend="dewTemp">dewTemp</link></member>
+   <member><link linkend="humidity">humidity</link></member>
+   <member><link linkend="satPress">satPress</link></member>
+   <member><link linkend="volume">volume</link></member>
+   <member><link linkend="adiabSat">adiabSat</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
 </refentry>

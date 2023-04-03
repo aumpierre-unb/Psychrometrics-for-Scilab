@@ -71,13 +71,13 @@ the psychrometrics toolbox for Scilab.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-// Compute the temperature T
-// and the humidity W
-// at saturation condition given
+// Compute the temperature and
+// the humidity at saturation condition given
 // the specific enthalpy 82.4 kJ/kg of dry air
 // and plot a graphical representation of the
 // answer in a schematic psychrometric chart:
-[T,W]=adiabSat(h=82.4e3,fig=%t) # inputs and outputs in SI units
+h=82.4e3; // enthalpy in J/kg dry air
+[T,W]=adiabSat(h,%t) // inputs and outputs in SI units
 
    ]]></programlisting>
 </refsection>

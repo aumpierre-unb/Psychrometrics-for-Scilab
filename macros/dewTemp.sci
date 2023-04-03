@@ -31,9 +31,9 @@ function [Tdew]=dewTemp(pw)
     // the psychrometrics toolbox for Scilab.
     //
     // Examples
-    // // Compute the dew temperature T given
+    // // Compute the dew temperature given
     // // the water vapor pressure pw 1 kPa:
-    // pw=1e3 // water vapor pressure in Pa
+    // pw=1e3; // water vapor pressure in Pa
     // Tdew=dewTemp(pw) // dew temperature in K
     //
     // See also

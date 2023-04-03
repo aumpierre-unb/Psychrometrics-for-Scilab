@@ -62,13 +62,13 @@ the psychrometrics toolbox for Scilab.</p>
    <p class="para"></p></div>
 
 <div class="refsection"><h3 class="title">Examples</h3>
-   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the temperature T</span>
-<span class="scilabcomment">// and the humidity W</span>
-<span class="scilabcomment">// at saturation condition given</span>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the temperature and</span>
+<span class="scilabcomment">// the humidity at saturation condition given</span>
 <span class="scilabcomment">// the specific enthalpy 82.4 kJ/kg of dry air</span>
 <span class="scilabcomment">// and plot a graphical representation of the</span>
 <span class="scilabcomment">// answer in a schematic psychrometric chart:</span>
-<span class="scilabopenclose">[</span><span class="scilabid">T</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">adiabSat</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabnumber">82.4e3</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span> <span class="scilabid">#</span> <span class="scilabid">inputs</span> <a class="scilabcommand" href="scilab://and">and</a> <span class="scilabstring">outputs</span> <span class="scilabstring">in</span> <span class="scilabstring">SI</span> <span class="scilabstring">units</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+<span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabnumber">82.4e3</span><span class="scilabdefault">;</span> <span class="scilabcomment">// enthalpy in J/kg dry air</span>
+<span class="scilabopenclose">[</span><span class="scilabid">T</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">adiabSat</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilabdefault">,</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// inputs and outputs in SI units</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
 
 <div class="refsection"><h3 class="title">See also</h3>
    <ul class="itemizedlist"><li class="member"><a href="psychro.html" class="link">psychro</a> &#8212; psychro computes the properties of humid air given any two parâmeters that configure a permanent state.</li>

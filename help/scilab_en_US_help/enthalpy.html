@@ -34,6 +34,49 @@
     <br /><br />
     <div class="refnamediv"><h1 class="refname">enthalpy</h1>
     <p class="refpurpose">enthalpy computes the specific enthalpy of humid air given the dry bulb temperature and the humidity</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">h</span><span class="default">]=</span><span class="functionid">enthalpy</span><span class="default">(</span><span class="default">Tdry</span><span class="default">,</span><span class="default">W</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">h:</span>
+            <dd><p class="para">specific enthalpy</p></dd></dt>
+        <dt><span class="term">fig:</span>
+            <dd><p class="para">optional, boolean for display plot (default is fig=%f)</p></dd></dt>
+        <dt><span class="term">Tadiab:</span>
+            <dd><p class="para">saturation temperature (in K)</p></dd></dt>
+        <dt><span class="term">Wadiab:</span>
+            <dd><p class="para">saturation humidity (in kg/kg of dry air)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">enthalpy computes
+the specific enthalpy h (in J/kg of dry air)
+of humid air given
+the dry bulb temperature Tdry (in K) and
+the humidity W (in kg/kg of dry air).
+enthalpy is a main function of
+the psychrometrics toolbox for Scilab.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the specific enthalpy given</span>
+<span class="scilabcomment">// the dry bulb temperature is 25 °C and</span>
+<span class="scilabcomment">// the humidity is 7 g/kg of dry air:</span>
+<span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabnumber">25</span><span class="scilaboperator">+</span><span class="scilabnumber">273.15</span><span class="scilabdefault">;</span> <span class="scilabcomment">// dry bulb temperature in K</span>
+<span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabnumber">7e-3</span><span class="scilabdefault">;</span> <span class="scilabcomment">// humidity in kg/kg of dry air</span>
+<span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabid">enthalpy</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// specific enthalpy in J/kg of dry air</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="psychro.html" class="link">psychro</a> &#8212; psychro computes the properties of humid air given any two parâmeters that configure a permanent state.</li>
+   <li class="member"><a href="dewTemp.html" class="link">dewTemp</a> &#8212; dewTemp computes the dew temperature of humid air given water vapor pressure</li>
+   <li class="member"><a href="humidity.html" class="link">humidity</a> &#8212; humidity computes the humidity W of humid air given the water vapor pressure and the total pressure</li>
+   <li class="member"><a href="satPress.html" class="link">satPress</a> &#8212; satPress computes the saturation pressure of humid air given the dry bulb temperature</li>
+   <li class="member"><a href="volume.html" class="link">volume</a> &#8212; volume computes the specific volume of humid air given the dry bulb temperature, the humidity and the total pressure</li>
+   <li class="member"><a href="adiabSat.html" class="link">adiabSat</a> &#8212; adiabSat computes the saturation temperature and humidity given the specific entalpy</li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Alexandre Umpierre</li></ul></div>
     <br />
 
     <div class="manualnavbar">
