@@ -14,7 +14,8 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [T,W]=buildVolume(v)
-    // plotVolume generates a two column matrix of
+
+    // buildVolume generates a two column matrix of
     // humidity and dry bulb temperature
     // with given constant specific volume v (in cu. m/kg).
     // By default, constant specific volume curves

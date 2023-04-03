@@ -14,6 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [T,W]=buildWetBulbTemp(Twet)
+
     // buildWetBulbTemp generates two column matrix of
     // humidity and dry bulb temperature
     // with given constant wet bulb temperature Twet (in K).

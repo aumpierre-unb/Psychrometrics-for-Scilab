@@ -14,6 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [T,W]=buildEnthalpy(h)
+
     // buildEnthalpy generates a two column matrix of
     // humidity and dry bulb temperature
     // with given constant specific enthalpy h (in J/kg).

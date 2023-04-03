@@ -14,6 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function doPlot()
+
     // doPlot plots
     // a schematic psychrometric chart with
     // previously computed curves with

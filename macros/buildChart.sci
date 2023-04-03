@@ -14,6 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function buildChart()
+
     // buildChart computes data for
     // a schematic psychrometric chart.
     // buildChart is an internal function of
