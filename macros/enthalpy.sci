@@ -21,7 +21,7 @@ function [h]=enthalpy(Tdry,W)
 
     //
     // Syntax
-    // [Tadiab,Wadiab]=adiabSat(h[,fig])
+    // [h]=enthalpy(Tdry,W)
     //
     // Parameters
     // h: specific enthalpy

@@ -43,9 +43,9 @@ function [Tadiab,Wadiab]=adiabSat(h,fig)
     // // and the humidity W
     // // at saturation condition given
     // // the specific enthalpy 82.4 kJ/kg of dry air
-    // // and plot results:
-    // h=82.4e3; # specific enthalpy in J/kg
-    // [T,W]=adiabSat(h,true) # inputs and outputs in SI units
+    // // and plot a graphical representation of the
+    // // answer in a schematic psychrometric chart:
+    // [T,W]=adiabSat(h=82.4e3,fig=%t) # inputs and outputs in SI units
     //
     // See also
     //  psychro
