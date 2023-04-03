@@ -1,19 +1,19 @@
 # `psychrometrics`
 
-[![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
+[![DOI](https://zenodo.org/badge/619319456.svg)](https://zenodo.org/badge/latestdoi/619319456)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Psychrometrics-for-Scilab)
 
 ## Install and load `psychrometrics` Toolbox for Scilab
 
-1\. Download ```v0.1.0-alpha.zip``` file from [Releases](https://github.com/aumpierre-unb/Psychrometrics-for-Scilab/releases).
+1\. Download ```v0.1.0.zip``` file from [Releases](https://github.com/aumpierre-unb/Psychrometrics-for-Scilab/releases).
 
 2\. Set Scilab current directory to the download folder.
 
 3\. To install and load the toolbox, type:
 
 ```powershell-interactive
-atomsInstall('v0.1.0-alpha.zip'),..
+atomsInstall('v0.1.0.zip'),..
 atomsLoad('psychrometrics')
 ```
 
