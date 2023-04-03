@@ -13,13 +13,12 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildChart computes data for
+// a schematic psychrometric chart.
+// buildChart is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function buildChart()
-
-    // buildChart computes data for
-    // a schematic psychrometric chart.
-    // buildChart is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     uv=[]
     [T,W]=buildVolume(.78),uv=[uv T W]
     [T,W]=buildVolume(.80),uv=[uv T W]

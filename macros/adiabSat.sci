@@ -19,7 +19,7 @@ function [Tadiab,Wadiab]=adiabSat(h,fig)
     // given the specific entalpy
     //
     // Syntax
-    // [Tadiab,Wadiab]=adiabSat(h[,fig])
+    // [Tadiab,Wadiab]=adiabSat(h,fig)
     //
     // Parameters
     // h: specific enthalpy

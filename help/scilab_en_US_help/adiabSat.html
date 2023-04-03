@@ -1,0 +1,105 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>adiabSat</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">&lt;&lt; Psychrometrics</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="buildChart.html">buildChart &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">Psychrometrics</a> &gt;&gt; <a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a> &gt; adiabSat</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">adiabSat</h1>
+    <p class="refpurpose">adiabSat computes</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">Tadiab</span><span class="default">,</span><span class="default">Wadiab</span><span class="default">]=</span><span class="functionid">adiabSat</span><span class="default">(</span><span class="default">h</span><span class="default">,</span><span class="default">fig</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">h:</span>
+            <dd><p class="para">specific enthalpy</p></dd></dt>
+        <dt><span class="term">fig:</span>
+            <dd><p class="para">optional, boolean for display plot (default is fig=%f)</p></dd></dt>
+        <dt><span class="term">Tadiab:</span>
+            <dd><p class="para">saturation temperature (in K)</p></dd></dt>
+        <dt><span class="term">Wadiab:</span>
+            <dd><p class="para">saturation humidity (in kg/kg of dry air)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">adiabSat computes
+the saturation temperature Tadiab (in K)
+and humidity Wadiab (in kg/kg of dry air)
+given the specific entalpy h (in J/kg of dry air).
+If the optional argument fig = %t is given,
+a schematic psychrometric chart pops up with
+a graphical representation of the stationary state.
+adiabSat is a main function of
+the psychrometrics toolbox for Scilab.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the temperature T</span>
+<span class="scilabcomment">// and the humidity W</span>
+<span class="scilabcomment">// at saturation condition given</span>
+<span class="scilabcomment">// the specific enthalpy 82.4 kJ/kg of dry air</span>
+<span class="scilabcomment">// and plot a graphical representation of the</span>
+<span class="scilabcomment">// answer in a schematic psychrometric chart:</span>
+<span class="scilabopenclose">[</span><span class="scilabid">T</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">adiabSat</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabnumber">82.4e3</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span> <span class="scilabid">#</span> <span class="scilabid">inputs</span> <a class="scilabcommand" href="scilab://and">and</a> <span class="scilabstring">outputs</span> <span class="scilabstring">in</span> <span class="scilabstring">SI</span> <span class="scilabstring">units</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="psychro.html" class="link">psychro</a> &#8212; humidity computes</li>
+   <li class="member"><a href="dewTemp.html" class="link">dewTemp</a> &#8212; dewTemp computes</li>
+   <li class="member"><a href="humidity.html" class="link">humidity</a> &#8212; humidity computes</li>
+   <li class="member"><a href="satPress.html" class="link">satPress</a> &#8212; satPress computes</li>
+   <li class="member"><a href="enthalpy.html" class="link">enthalpy</a> &#8212; enthalpy computes</li>
+   <li class="member"><a href="volume.html" class="link">volume</a> &#8212; volume computes</li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Alexandre Umpierre</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">&lt;&lt; Psychrometrics</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="buildChart.html">buildChart &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

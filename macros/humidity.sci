@@ -43,13 +43,9 @@ function [W]=humidity(pw,p)
     // // Compute the humidity of humid air
     // // at atmospheric pressure given
     // // water vapor pressure is 1 kPa
-    // // at 1 atm total pressure.
+    // // at 1 atm total pressure:
     // pw=1e3 // water vapor pressure in Pa
     // W=humidity(pw) // saturation pressure in kg/kg of dry air
-    //
-    // Tdry=25+273.15 // dry bulb temperature in K
-    // W=7e-3 // humidity in kg/kg of dry air
-    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
     //
     // See also
     //  psychro

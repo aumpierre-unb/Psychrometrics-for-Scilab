@@ -34,7 +34,7 @@ function [Tdew]=dewTemp(pw)
     //
     // Examples
     // // Compute the dew temperature T given
-    // // the water vapor pressure pw 1 kPa.
+    // // the water vapor pressure pw 1 kPa:
     // pw=1e3 // water vapor pressure in Pa
     // Tdew=dewTemp(pw) // dew temperature in K
     //

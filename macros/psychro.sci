@@ -20,7 +20,7 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // the total pressure
     //
     // Syntax
-    // [W]=humidity(pw,p)
+    // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
     //
     // Parameters
     // pw: dry bulb temperature (in K)
@@ -70,9 +70,9 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     // // the saturation pressure at wet bulb temperature and
     // // the density given
     // // the specific enthalpy is 79.5 kJ/kg and
-    // // the relative humidity is 29 // and
+    // // the relative humidity is 0.29 // and
     // // plot a graphical representation of the
-    // // answer in a schematic psychrometric chart.
+    // // answer in a schematic psychrometric chart:
     // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=..
     // psychro(h=79.5e3,phi=.29,fig=%t) // inputs and outputs in SI units
     //
@@ -112,10 +112,6 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
     //
     // // The water vapor demand is
     // (W5-W1)*(8.5/v1) // demand of water vapor
-    //
-    // Tdry=25+273.15 // dry bulb temperature in K
-    // W=7e-3 // humidity in kg/kg of dry air
-    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
     //
     // See also
     //  dewTemp

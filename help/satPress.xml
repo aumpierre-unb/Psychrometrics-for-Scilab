@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from satPress.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="satPress" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>satPress</refname>
+    <refpurpose>satPress computes</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [psat]=satPress(Tdry)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>Tdry:</term>
+            <listitem><para> dry bulb temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>psat:</term>
+            <listitem><para> saturation pressure of humid air (in Pa)</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+satPress computes
+the saturation pressure psat (in pa)
+of humid air given
+the dry bulb temperature Tdry (in K).
+satPress is a main function of
+the psychrometrics toolbox for Scilab.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Compute the saturation pressure given
+// the dry bulb temperature is 25 °C:
+Tdry=25+273.15 // dry bulb temperature in K
+psat=satPress(Tdry) // saturation pressure in Pa
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="psychro">psychro</link></member>
+   <member><link linkend="dewTemp">dewTemp</link></member>
+   <member><link linkend="humidity">humidity</link></member>
+   <member><link linkend="enthalpy">enthalpy</link></member>
+   <member><link linkend="volume">volume</link></member>
+   <member><link linkend="adiabSat">adiabSat</link></member>
+   </simplelist>
+</refsection>
+</refentry>

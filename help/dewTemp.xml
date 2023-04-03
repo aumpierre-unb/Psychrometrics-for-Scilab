@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from dewTemp.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="dewTemp" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>dewTemp</refname>
+    <refpurpose>dewTemp computes</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [Tdew]=dewTemp(pw)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>pw:</term>
+            <listitem><para> water vapor pressure (in Pa)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Tdew:</term>
+            <listitem><para> dew temperature (in K)</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+dewTemp computes
+the dew temperature of humid air Tdew (in K)
+given the water vapor pressure pw (in Pa).
+dewTemp is a main function of
+the psychrometrics toolbox for Scilab.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Compute the dew temperature T given
+// the water vapor pressure pw 1 kPa:
+pw=1e3 // water vapor pressure in Pa
+Tdew=dewTemp(pw) // dew temperature in K
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="psychro">psychro</link></member>
+   <member><link linkend="humidity">humidity</link></member>
+   <member><link linkend="satPress">satPress</link></member>
+   <member><link linkend="enthalpy">enthalpy</link></member>
+   <member><link linkend="volume">volume</link></member>
+   <member><link linkend="adiabSat">adiabSat</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,100 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>humidity</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="enthalpy.html">&lt;&lt; enthalpy</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="humidity2.html">humidity2 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">Psychrometrics</a> &gt;&gt; <a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a> &gt; humidity</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">humidity</h1>
+    <p class="refpurpose">humidity computes</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">W</span><span class="default">]=</span><span class="functionid">humidity</span><span class="default">(</span><span class="default">pw</span><span class="default">,</span><span class="default">p</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">pw:</span>
+            <dd><p class="para">water vapor pressure (in K)</p></dd></dt>
+        <dt><span class="term">p:</span>
+            <dd><p class="para">total pressure (in Pa)</p></dd></dt>
+        <dt><span class="term">W:</span>
+            <dd><p class="para">humidity (in kg/kg of dry air)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">humidity computes
+the humidity W (in kg/kg of dry air)
+of humid air given
+the water vapor pressure pw (in Pa) and
+the total pressure p (in Pa).
+By default, total pressure is assumed
+to be the atmospheric pressure
+at sea level (p = 101325).
+humidity is a main function of
+the psychrometrics toolbox for Scilab.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the humidity of humid air</span>
+<span class="scilabcomment">// at atmospheric pressure given</span>
+<span class="scilabcomment">// water vapor pressure is 1 kPa</span>
+<span class="scilabcomment">// at 1 atm total pressure:</span>
+<span class="scilabid">pw</span><span class="scilaboperator">=</span><span class="scilabnumber">1e3</span> <span class="scilabcomment">// water vapor pressure in Pa</span>
+<span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabid">humidity</span><span class="scilabopenclose">(</span><span class="scilabid">pw</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// saturation pressure in kg/kg of dry air</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="psychro.html" class="link">psychro</a> &#8212; humidity computes</li>
+   <li class="member"><a href="dewTemp.html" class="link">dewTemp</a> &#8212; dewTemp computes</li>
+   <li class="member"><a href="satPress.html" class="link">satPress</a> &#8212; satPress computes</li>
+   <li class="member"><a href="enthalpy.html" class="link">enthalpy</a> &#8212; enthalpy computes</li>
+   <li class="member"><a href="volume.html" class="link">volume</a> &#8212; volume computes</li>
+   <li class="member"><a href="adiabSat.html" class="link">adiabSat</a> &#8212; adiabSat computes</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="enthalpy.html">&lt;&lt; enthalpy</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="humidity2.html">humidity2 &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

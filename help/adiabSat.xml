@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from adiabSat.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="adiabSat" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>adiabSat</refname>
+    <refpurpose>adiabSat computes</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [Tadiab,Wadiab]=adiabSat(h,fig)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>h:</term>
+            <listitem><para> specific enthalpy</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>fig:</term>
+            <listitem><para> optional, boolean for display plot (default is fig=%f)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Tadiab:</term>
+            <listitem><para> saturation temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>Wadiab:</term>
+            <listitem><para>  saturation humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+adiabSat computes
+the saturation temperature Tadiab (in K)
+and humidity Wadiab (in kg/kg of dry air)
+given the specific entalpy h (in J/kg of dry air).
+If the optional argument fig = %t is given,
+a schematic psychrometric chart pops up with
+a graphical representation of the stationary state.
+adiabSat is a main function of
+the psychrometrics toolbox for Scilab.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Compute the temperature T
+// and the humidity W
+// at saturation condition given
+// the specific enthalpy 82.4 kJ/kg of dry air
+// and plot a graphical representation of the
+// answer in a schematic psychrometric chart:
+[T,W]=adiabSat(h=82.4e3,fig=%t) # inputs and outputs in SI units
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="psychro">psychro</link></member>
+   <member><link linkend="dewTemp">dewTemp</link></member>
+   <member><link linkend="humidity">humidity</link></member>
+   <member><link linkend="satPress">satPress</link></member>
+   <member><link linkend="enthalpy">enthalpy</link></member>
+   <member><link linkend="volume">volume</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Alexandre Umpierre</member>
+   </simplelist>
+</refsection>
+</refentry>

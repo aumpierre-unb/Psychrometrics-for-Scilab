@@ -35,13 +35,9 @@ function [psat]=satPress(Tdry)
     //
     // Examples
     // // Compute the saturation pressure given
-    // // the dry bulb temperature is 25 °C.
+    // // the dry bulb temperature is 25 °C:
     // Tdry=25+273.15 // dry bulb temperature in K
     // psat=satPress(Tdry) // saturation pressure in Pa
-    //
-    // Tdry=25+273.15 // dry bulb temperature in K
-    // W=7e-3 // humidity in kg/kg of dry air
-    // v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
     //
     // See also
     //  psychro

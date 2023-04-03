@@ -13,16 +13,15 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildHumidity generates a two column matrix of
+// humidity and dry bulb temperature
+// with given constant relative humidity phi.
+// By default, constant relative humidity curves
+// are ploted with black solid thin lines.
+// buildHumidity is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function [T,W]=buildHumidity(phi)
-
-    // buildHumidity generates a two column matrix of
-    // humidity and dry bulb temperature
-    // with given constant relative humidity phi.
-    // By default, constant relative humidity curves
-    // are ploted with black solid thin lines.
-    // buildHumidity is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     T1=273.15
     function z=foo(T2)
         z=.03-humidity(satPress(T2)*phi)
@@ -40,4 +39,3 @@ function [T,W]=buildHumidity(phi)
         W=[W;humidity(pw)]
     end
 end
-

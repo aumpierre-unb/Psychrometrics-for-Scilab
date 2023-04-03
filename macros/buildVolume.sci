@@ -13,16 +13,15 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildVolume generates a two column matrix of
+// humidity and dry bulb temperature
+// with given constant specific volume v (in cu. m/kg).
+// By default, constant specific volume curves
+// are ploted with with green dash-doted thin lines.
+// buildVolume is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function [T,W]=buildVolume(v)
-
-    // buildVolume generates a two column matrix of
-    // humidity and dry bulb temperature
-    // with given constant specific volume v (in cu. m/kg).
-    // By default, constant specific volume curves
-    // are ploted with with green dash-doted thin lines.
-    // buildVolume is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     function z=foo(T1)
         z=v-volume(T1,humidity(satPress(T1)))
     end
@@ -53,4 +52,3 @@ function [T,W]=buildVolume(v)
         W=[W;newtonraphson(foo,1e-2,tol)]
     end
 end
-

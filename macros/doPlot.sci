@@ -13,19 +13,18 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// doPlot plots
+// a schematic psychrometric chart with
+// previously computed curves with
+// constant dry bulb temperature,
+// constant specific volume,
+// constant specific enthalpy and
+// constant relative humidity.
+// Edition of this file is highly not advised.
+// doPlot is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function doPlot()
-
-    // doPlot plots
-    // a schematic psychrometric chart with
-    // previously computed curves with
-    // constant dry bulb temperature,
-    // constant specific volume,
-    // constant specific enthalpy and
-    // constant relative humidity.
-    // Edition of this file is highly not advised.
-    // doPlot is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     exec(get_absolute_file_path()+"plotData.sci",-1)
     if winsid()==[]
         scf(0)

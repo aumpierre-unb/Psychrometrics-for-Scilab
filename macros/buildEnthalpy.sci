@@ -13,16 +13,15 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildEnthalpy generates a two column matrix of
+// humidity and dry bulb temperature
+// with given constant specific enthalpy h (in J/kg).
+// By default, constant specific enthalpy curves
+// are ploted with red dash-doted thin lines.
+// buildEnthalpy is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function [T,W]=buildEnthalpy(h)
-
-    // buildEnthalpy generates a two column matrix of
-    // humidity and dry bulb temperature
-    // with given constant specific enthalpy h (in J/kg).
-    // By default, constant specific enthalpy curves
-    // are ploted with red dash-doted thin lines.
-    // buildEnthalpy is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     function z=foo(T1)
         z=h-enthalpy(T1,humidity(satPress(T1)))
     end
@@ -52,4 +51,3 @@ function [T,W]=buildEnthalpy(h)
         W=[W;newtonraphson(foo,1e-2,tol)]
     end
 end
-

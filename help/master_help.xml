@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a358fa7c16b746794707353a4b4a3edbe SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/adiabSat.xml">
+<!ENTITY a7144100c10ed77ac5f7c9914c1958742 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/buildChart.xml">
+<!ENTITY a90ccec50a147d4ea4c93a685f591e6f5 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/buildEnthalpy.xml">
+<!ENTITY ad595a5f7a2443209c3a826e590ab357d SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/buildHumidity.xml">
+<!ENTITY a8af1c57177f44c36e93d7229a54e9178 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/buildVolume.xml">
+<!ENTITY a20870185dc6b19467c52fbcd21b67659 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/buildWetBulbTemp.xml">
+<!ENTITY aa1f30fc3e4ab919602007c69398f0b60 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/constants.xml">
+<!ENTITY a68ca888636ae3387d89f596c157dd88d SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/dewTemp.xml">
+<!ENTITY aaedb8850188122a604f6074313bc253f SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/doPlot.xml">
+<!ENTITY a9bb43c46624b8f8509f8d0fce8cc6f5f SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/enthalpy.xml">
+<!ENTITY a90c906c028deafdbc25979b953878ab7 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/humidity.xml">
+<!ENTITY af8153986264b4d168ae8674f7eb5d156 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/humidity2.xml">
+<!ENTITY aa00d170bae90400e58ccebc894b04ad1 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/newtonraphson.xml">
+<!ENTITY af3f3de925fe8d33ecb93a1fcc361cdb3 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/plotData.xml">
+<!ENTITY ab71f4c30c07caf88aa43fc0894541e7d SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/psychro.xml">
+<!ENTITY abf45fa9da54f3e32d82c27eeac941086 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/satPress.xml">
+<!ENTITY a6b4e9215c125bf6d00aefcbb9b783db1 SYSTEM "file:///C:/Users/Alexandre/Documents/GitHub/Psychrometrics-for-Scilab/help/volume.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='psychrometrics_manual'>
+    <title>Psychrometrics</title>
+  </info>
+
+<part xml:id='section_23be8211c9f755f024420ebd67bb9ca0'>
+<title>Psychrometrics</title>
+&a358fa7c16b746794707353a4b4a3edbe;
+&a7144100c10ed77ac5f7c9914c1958742;
+&a90ccec50a147d4ea4c93a685f591e6f5;
+&ad595a5f7a2443209c3a826e590ab357d;
+&a8af1c57177f44c36e93d7229a54e9178;
+&a20870185dc6b19467c52fbcd21b67659;
+&aa1f30fc3e4ab919602007c69398f0b60;
+&a68ca888636ae3387d89f596c157dd88d;
+&aaedb8850188122a604f6074313bc253f;
+&a9bb43c46624b8f8509f8d0fce8cc6f5f;
+&a90c906c028deafdbc25979b953878ab7;
+&af8153986264b4d168ae8674f7eb5d156;
+&aa00d170bae90400e58ccebc894b04ad1;
+&af3f3de925fe8d33ecb93a1fcc361cdb3;
+&ab71f4c30c07caf88aa43fc0894541e7d;
+&abf45fa9da54f3e32d82c27eeac941086;
+&a6b4e9215c125bf6d00aefcbb9b783db1;
+</part>
+</book>

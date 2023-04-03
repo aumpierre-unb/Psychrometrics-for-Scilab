@@ -1,0 +1,166 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>psychro</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="plotData.html">&lt;&lt; plotData</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="satPress.html">satPress &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">Psychrometrics</a> &gt;&gt; <a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a> &gt; psychro</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">psychro</h1>
+    <p class="refpurpose">humidity computes</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+   <div class="synopsis"><pre><span class="default">[</span><span class="default">Tdry</span><span class="default">,</span><span class="default">Twet</span><span class="default">,</span><span class="default">Tdew</span><span class="default">,</span><span class="default">Tadiab</span><span class="default">,</span><span class="default">W</span><span class="default">,</span><span class="default">Wsat</span><span class="default">,</span><span class="default">Wsatwet</span><span class="default">,</span><span class="default">Wadiab</span><span class="default">,</span><span class="default">h</span><span class="default">,</span><span class="default">v</span><span class="default">,</span><span class="default">phi</span><span class="default">,</span><span class="default">pw</span><span class="default">,</span><span class="default">psat</span><span class="default">,</span><span class="default">psatwet</span><span class="default">,</span><span class="default">rho</span><span class="default">]=</span><span class="functionid">psychro</span><span class="default">(</span><span class="default">Tdry</span><span class="default">,</span><span class="default">Twet</span><span class="default">,</span><span class="default">Tdew</span><span class="default">,</span><span class="default">W</span><span class="default">,</span><span class="default">h</span><span class="default">,</span><span class="default">v</span><span class="default">,</span><span class="default">phi</span><span class="default">,</span><span class="default">fig</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">pw:</span>
+            <dd><p class="para">dry bulb temperature (in K)</p></dd></dt>
+        <dt><span class="term">p:</span>
+            <dd><p class="para">total pressure (in Pa)</p></dd></dt>
+        <dt><span class="term">W:</span>
+            <dd><p class="para">humidity (in kg/kg of dry air)</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">psychro computes
+the dry bulb temperature Tdry (in K),
+the wet bulb temperature Twet (in K),
+the dew point temperature Tdew (in K),
+the adiabatic saturation temperature Tadiab (in K),
+the humidit W (in kg/kg of dry air),
+the saturation humidity Wsat (in kg/kg of dry air),
+the saturation humidity at the wet bulb temperature Wsatwet (in kg/kg of dry air),
+the adiabatic saturation humidity Wadiab (in kg/kg of dry air),
+the specific enthalpy h (in J/kg of dry air),
+the specific volume v (in cu. m/kg of dry air),
+the the relative humidity phi,
+the water vapor pressure pw (in Pa),
+the water saturation pressure psat (in Pa),
+the saturation pressure at the wet bulb temperature psatwet (in Pa) and
+the density rho (in kg/cu. m) given
+any two input arguments,
+except the combination of water vapor pressure and
+dew point temperature, which are not independent.
+If fig = true is given, a schematic psychrometric chart
+is plotted as a graphical representation
+of the solution.
+psychro is a main function of
+the psychrometrics toolbox for Scilab.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Compute the dry bulb temperature,</span>
+<span class="scilabcomment">// the wet bulb temperature,</span>
+<span class="scilabcomment">// the dew point temperature,</span>
+<span class="scilabcomment">// the adiabatic saturation temperature,</span>
+<span class="scilabcomment">// the humidity,</span>
+<span class="scilabcomment">// the saturation humidity,</span>
+<span class="scilabcomment">// the saturation humidity at wet bulb temperature,</span>
+<span class="scilabcomment">// the adiabatic saturation humidity,</span>
+<span class="scilabcomment">// the specific enthalpy,</span>
+<span class="scilabcomment">// the specific volume,</span>
+<span class="scilabcomment">// the relative humidity,</span>
+<span class="scilabcomment">// the water vapor pressure,</span>
+<span class="scilabcomment">// the saturation pressure,</span>
+<span class="scilabcomment">// the saturation pressure at wet bulb temperature and</span>
+<span class="scilabcomment">// the density given</span>
+<span class="scilabcomment">// the specific enthalpy is 79.5 kJ/kg and</span>
+<span class="scilabcomment">// the relative humidity is 0.29 // and</span>
+<span class="scilabcomment">// plot a graphical representation of the</span>
+<span class="scilabcomment">// answer in a schematic psychrometric chart:</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry</span><span class="scilabdefault">,</span><span class="scilabid">Twet</span><span class="scilabdefault">,</span><span class="scilabid">Tdew</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilabdefault">,</span><span class="scilabid">Wsat</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab</span><span class="scilabdefault">,</span><span class="scilabid">h</span><span class="scilabdefault">,</span><span class="scilabid">v</span><span class="scilabdefault">,</span><span class="scilabid">phi</span><span class="scilabdefault">,</span><span class="scilabid">pw</span><span class="scilabdefault">,</span><span class="scilabid">psat</span><span class="scilabdefault">,</span><span class="scilabid">psatwet</span><span class="scilabdefault">,</span><span class="scilabid">rho</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabspecial">..</span>
+<span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabnumber">79.5e3</span><span class="scilabdefault">,</span><span class="scilabid">phi</span><span class="scilaboperator">=</span><span class="scilabnumber">.29</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// inputs and outputs in SI units</span>
+
+<span class="scilabcomment">// 8.5 cubic meters of humid air at</span>
+<span class="scilabcomment">// dry bulb temperature of 293 K and</span>
+<span class="scilabcomment">// wet bulb temperature of 288 K</span>
+<span class="scilabcomment">// is subjected to two cycles of</span>
+<span class="scilabcomment">// heating to 323 and adiabatic saturation.</span>
+<span class="scilabcomment">// Compute the energy and water vapor demands.</span>
+<span class="scilabcomment">// Assume the amount of dry air is constant.</span>
+
+<span class="scilabcomment">// The initial condition is</span>
+<span class="scilabid">Tdry1</span><span class="scilaboperator">=</span><span class="scilabnumber">293</span>
+<span class="scilabid">Twet1</span><span class="scilaboperator">=</span><span class="scilabnumber">288</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry1</span><span class="scilabdefault">,</span><span class="scilabid">Twet1</span><span class="scilabdefault">,</span><span class="scilabid">Tdew1</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab1</span><span class="scilabdefault">,</span><span class="scilabid">W1</span><span class="scilabdefault">,</span><span class="scilabid">Wsat1</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet1</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab1</span><span class="scilabdefault">,</span><span class="scilabid">h1</span><span class="scilabdefault">,</span><span class="scilabid">v1</span><span class="scilabdefault">,</span><span class="scilabid">phi1</span><span class="scilabdefault">,</span><span class="scilabid">pw1</span><span class="scilabdefault">,</span><span class="scilabid">psat1</span><span class="scilabdefault">,</span><span class="scilabid">psatwet1</span><span class="scilabdefault">,</span><span class="scilabid">rho1</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabid">Tdry1</span><span class="scilabdefault">,</span><span class="scilabid">Twet</span><span class="scilaboperator">=</span><span class="scilabid">Twet1</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span>
+
+<span class="scilabcomment">// The thermodynamic state the after first adiabatic saturation is</span>
+<span class="scilabid">Tdry2</span><span class="scilaboperator">=</span><span class="scilabnumber">323</span>
+<span class="scilabid">W2</span><span class="scilaboperator">=</span><span class="scilabid">W1</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry2</span><span class="scilabdefault">,</span><span class="scilabid">Twet2</span><span class="scilabdefault">,</span><span class="scilabid">Tdew2</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab2</span><span class="scilabdefault">,</span><span class="scilabid">W2</span><span class="scilabdefault">,</span><span class="scilabid">Wsat2</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet2</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab2</span><span class="scilabdefault">,</span><span class="scilabid">h2</span><span class="scilabdefault">,</span><span class="scilabid">v2</span><span class="scilabdefault">,</span><span class="scilabid">phi2</span><span class="scilabdefault">,</span><span class="scilabid">pw2</span><span class="scilabdefault">,</span><span class="scilabid">psat2</span><span class="scilabdefault">,</span><span class="scilabid">psatwet2</span><span class="scilabdefault">,</span><span class="scilabid">rho2</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabid">Tdry2</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabid">W2</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span>
+<span class="scilabcomment">// The thermodynamic state the after first adiabatic saturation is</span>
+<span class="scilabid">h3</span><span class="scilaboperator">=</span><span class="scilabid">h2</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry3</span><span class="scilabdefault">,</span><span class="scilabid">W3</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">adiabSat</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabid">h3</span><span class="scilabopenclose">)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry3</span><span class="scilabdefault">,</span><span class="scilabid">Twet3</span><span class="scilabdefault">,</span><span class="scilabid">Tdew3</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab3</span><span class="scilabdefault">,</span><span class="scilabid">W3</span><span class="scilabdefault">,</span><span class="scilabid">Wsat3</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet3</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab3</span><span class="scilabdefault">,</span><span class="scilabid">h3</span><span class="scilabdefault">,</span><span class="scilabid">v3</span><span class="scilabdefault">,</span><span class="scilabid">phi3</span><span class="scilabdefault">,</span><span class="scilabid">pw3</span><span class="scilabdefault">,</span><span class="scilabid">psat3</span><span class="scilabdefault">,</span><span class="scilabid">psatwet3</span><span class="scilabdefault">,</span><span class="scilabid">rho3</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabid">Tdry3</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabid">W3</span><span class="scilabopenclose">)</span>
+
+<span class="scilabcomment">// The thermodynamic state after the second heating is</span>
+<span class="scilabid">Tdry4</span><span class="scilaboperator">=</span><span class="scilabnumber">323</span>
+<span class="scilabid">W4</span><span class="scilaboperator">=</span><span class="scilabid">W3</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry4</span><span class="scilabdefault">,</span><span class="scilabid">Twet4</span><span class="scilabdefault">,</span><span class="scilabid">Tdew4</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab4</span><span class="scilabdefault">,</span><span class="scilabid">W4</span><span class="scilabdefault">,</span><span class="scilabid">Wsat4</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet4</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab4</span><span class="scilabdefault">,</span><span class="scilabid">h4</span><span class="scilabdefault">,</span><span class="scilabid">v4</span><span class="scilabdefault">,</span><span class="scilabid">phi4</span><span class="scilabdefault">,</span><span class="scilabid">pw4</span><span class="scilabdefault">,</span><span class="scilabid">psat4</span><span class="scilabdefault">,</span><span class="scilabid">psatwet4</span><span class="scilabdefault">,</span><span class="scilabid">rho4</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabid">Tdry4</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabid">W4</span><span class="scilabdefault">,</span><span class="scilabid">fig</span><span class="scilaboperator">=</span><span class="scilabconstants">%t</span><span class="scilabopenclose">)</span>
+<span class="scilabcomment">// The thermodynamic state the after second adiabatic saturation is</span>
+<span class="scilabid">h5</span><span class="scilaboperator">=</span><span class="scilabid">h4</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry5</span><span class="scilabdefault">,</span><span class="scilabid">W5</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">adiabSat</span><span class="scilabopenclose">(</span><span class="scilabid">h</span><span class="scilaboperator">=</span><span class="scilabid">h5</span><span class="scilabopenclose">)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Tdry5</span><span class="scilabdefault">,</span><span class="scilabid">Twet5</span><span class="scilabdefault">,</span><span class="scilabid">Tdew5</span><span class="scilabdefault">,</span><span class="scilabid">Tadiab5</span><span class="scilabdefault">,</span><span class="scilabid">W5</span><span class="scilabdefault">,</span><span class="scilabid">Wsat5</span><span class="scilabdefault">,</span><span class="scilabid">Wsatwet5</span><span class="scilabdefault">,</span><span class="scilabid">Wadiab5</span><span class="scilabdefault">,</span><span class="scilabid">h5</span><span class="scilabdefault">,</span><span class="scilabid">v5</span><span class="scilabdefault">,</span><span class="scilabid">phi5</span><span class="scilabdefault">,</span><span class="scilabid">pw5</span><span class="scilabdefault">,</span><span class="scilabid">psat5</span><span class="scilabdefault">,</span><span class="scilabid">psatwet5</span><span class="scilabdefault">,</span><span class="scilabid">rho5</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span><span class="scilabid">psychro</span><span class="scilabopenclose">(</span><span class="scilabid">Tdry</span><span class="scilaboperator">=</span><span class="scilabid">Tdry5</span><span class="scilabdefault">,</span><span class="scilabid">W</span><span class="scilaboperator">=</span><span class="scilabid">W5</span><span class="scilabopenclose">)</span>
+
+<span class="scilabcomment">// The energy demand is</span>
+<span class="scilabopenclose">(</span><span class="scilabid">h5</span><span class="scilaboperator">-</span><span class="scilabid">h1</span><span class="scilabopenclose">)</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabnumber">8.5</span><span class="scilaboperator">/</span><span class="scilabid">v1</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// demand of energy</span>
+
+<span class="scilabcomment">// The water vapor demand is</span>
+<span class="scilabopenclose">(</span><span class="scilabid">W5</span><span class="scilaboperator">-</span><span class="scilabid">W1</span><span class="scilabopenclose">)</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabnumber">8.5</span><span class="scilaboperator">/</span><span class="scilabid">v1</span><span class="scilabopenclose">)</span> <span class="scilabcomment">// demand of water vapor</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="dewTemp.html" class="link">dewTemp</a> &#8212; dewTemp computes</li>
+   <li class="member"><a href="humidity.html" class="link">humidity</a> &#8212; humidity computes</li>
+   <li class="member"><a href="satPress.html" class="link">satPress</a> &#8212; satPress computes</li>
+   <li class="member"><a href="enthalpy.html" class="link">enthalpy</a> &#8212; enthalpy computes</li>
+   <li class="member"><a href="volume.html" class="link">volume</a> &#8212; volume computes</li>
+   <li class="member"><a href="adiabSat.html" class="link">adiabSat</a> &#8212; adiabSat computes</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="plotData.html">&lt;&lt; plotData</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_23be8211c9f755f024420ebd67bb9ca0.html">Psychrometrics</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="satPress.html">satPress &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

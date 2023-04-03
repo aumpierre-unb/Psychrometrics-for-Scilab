@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from volume.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="volume" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>volume</refname>
+    <refpurpose>volume computes</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+   [v]=volume(Tdry,W,p)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+        <varlistentry>
+            <term>Tdry:</term>
+            <listitem><para> dry bulb temperature (in K)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>W:</term>
+            <listitem><para> humidity (in kg/kg of dry air)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>p:</term>
+            <listitem><para> total pressure (in Pa)</para></listitem>
+        </varlistentry>
+        <varlistentry>
+            <term>v:</term>
+            <listitem><para> specific volume (in cu. m/kg of dry air)</para></listitem>
+        </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+volume computes
+the specific volume v (in cu. m/kg of dry air)
+of humid air given
+the dry bulb temperature Tdry (in K),
+the humidity W (in kg/kg of dry air) and
+the total pressure p (in Pa).
+By default, total pressure is assumed
+to be the atmospheric pressure
+at sea level (p = 101325).
+volume is a main function of
+the psychrometrics toolbox for Scilab.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Compute the specific volume given
+// the dry bulb temperature is 25 °C and
+// the humidity is 7 g/kg of dry air
+// at 1 atm total pressure:
+Tdry=25+273.15 // dry bulb temperature in K
+W=7e-3 // humidity in kg/kg of dry air
+v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
+
+   ]]></programlisting>
+</refsection>
+
+<refsection role="see also">
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="psychro">psychro</link></member>
+   <member><link linkend="dewTemp">dewTemp</link></member>
+   <member><link linkend="humidity">humidity</link></member>
+   <member><link linkend="satPress">satPress</link></member>
+   <member><link linkend="enthalpy">enthalpy</link></member>
+   <member><link linkend="adiabSat">adiabSat</link></member>
+   </simplelist>
+</refsection>
+</refentry>

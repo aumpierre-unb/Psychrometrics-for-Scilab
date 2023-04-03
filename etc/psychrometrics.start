@@ -13,12 +13,12 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// psychrometrics.start is part of
+// the psychrometrics toolbox for Scilab.
+
 path=get_absolute_file_path()
 path=strncpy(path,length(path)-length("etc\"))
-genlib("prychrometrics",path+"macros")
-
-//chdir(path+"macros")
-//help_from_sci(path+"macros",path+"help")
+genlib("psychrometrics",path+"macros")
 
 chdir(path)
 mkdir("jar")

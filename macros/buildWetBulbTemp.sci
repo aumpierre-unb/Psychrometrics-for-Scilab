@@ -13,16 +13,15 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// buildWetBulbTemp generates two column matrix of
+// humidity and dry bulb temperature
+// with given constant wet bulb temperature Twet (in K).
+// By default, constant specific volume curves
+// are ploted with with blue solid thin lines.
+// buildWetBulbTemp is an internal function of
+// the psychrometrics toolbox for Scilab.
+
 function [T,W]=buildWetBulbTemp(Twet)
-
-    // buildWetBulbTemp generates two column matrix of
-    // humidity and dry bulb temperature
-    // with given constant wet bulb temperature Twet (in K).
-    // By default, constant specific volume curves
-    // are ploted with with blue solid thin lines.
-    // buildWetBulbTemp is an internal function of
-    // the psychrometrics toolbox for Scilab.
-
     T1=Twet
     if humidity(satPress(T1))>.03
         function z=foo(T1)
@@ -49,4 +48,3 @@ function [T,W]=buildWetBulbTemp(Twet)
         W=[W;newtonraphson(foo,1e-2,tol)]
     end
 end
-

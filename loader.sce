@@ -13,4 +13,7 @@
 // GNU General Public License along with this program.
 // It is also available at www.gnu.org/licenses/.
 
+// loader is part of
+// the psychrometrics toolbox for Scilab.
+
 exec(get_absolute_file_path()+"etc\"+"psychrometrics.start");
