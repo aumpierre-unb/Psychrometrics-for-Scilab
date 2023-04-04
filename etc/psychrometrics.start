@@ -16,13 +16,13 @@
 // psychrometrics.start is part of
 // the psychrometrics toolbox for Scilab.
 
-path=get_absolute_file_path()
-path=strncpy(path,length(path)-length("etc\"))
-genlib("psychrometrics",path+"macros")
+path=get_absolute_file_path();
+path=strncpy(path,length(path)-length("etc\"));
+genlib("psychrometrics",path+"macros");
 
-chdir(path)
-mkdir("jar")
+chdir(path);
+mkdir("jar");
 jcreatejar(path+"jar\scilab_en_US_help.jar",..
-           path+"help")
+           path+"help");
 
-add_help_chapter("Psychrometrics",path+"jar")
+add_help_chapter("Psychrometrics",path+"jar");
