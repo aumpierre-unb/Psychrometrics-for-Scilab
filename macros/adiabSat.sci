@@ -74,25 +74,12 @@ function [Tadiab,Wadiab]=adiabSat(h,fig)
         [te,we]=buildEnthalpy(h)
         [th,wh]=buildHumidity(1)
         doPlot()
-        plot(tv,wv,"-.g","linewidth",2)
-        plot(tb,wb,"-.b","linewidth",2)
-        plot(te,we,"-.r","linewidth",2)
-        plot(th,wh,"k","linewidth",2)
+        plot(tv,wv,"--","color","green3","linewidth",2)
+        plot(tb,wb,"--","color","dodgerblue1","linewidth",2)
+        plot(te,we,"--","color","red","linewidth",2)
+        plot(th,wh,"-","color","black","linewidth",2)
         plot(Tadiab,Wadiab,"or","markersize",8)
-//        if Wsat>.03
-//            wsat=.03
-//        else
-//            wsat=Wsat
-//            plot(Tdry,wsat,"ok","markersize",8)
-//            plot([Tdry Tdry 60+273.15],[0 wsat wsat],"-.k","linewidth",.5)
-//        end
         plot([Tadiab Tadiab 60+273.15],[0 Wadiab Wadiab],"--r","linewidth",.5)
-        gca().grid=[1,1]
-        gca().grid_style=[9,9]
-        gca().auto_scale="off"
-        gca().tight_limits=["on","on"];
-        gca().data_bounds=[0+273.15 60+273.15 0 .03]
-        gcf().figure_size=[600,600]
     end
     funcprot(prot)
 end
