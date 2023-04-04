@@ -214,6 +214,8 @@ function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rh
         phi=pw/psat
         h=enthalpy(Tdry,W)
         v=volume(Tdry,W)
+
+
         function z=foo(Twet)
             z=W-humidity2(humidity(satPress(Twet)),Tdry,Twet)
         end
