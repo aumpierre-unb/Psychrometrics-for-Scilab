@@ -16,13 +16,13 @@
 // create_help_files is part of
 // the psychrometrics toolbox for Scilab.
 
-path=get_absolute_file_path()
-chdir(path+'macros')
-mkdir(path+'help')
-help_from_sci(path+'macros',path+'help')
+path=get_absolute_file_path();
+chdir(path+'macros');
+mkdir(path+'help');
+help_from_sci(path+'macros',path+'help');
 
-chdir(path)
-chdir(path+'help')
-xmltojar(path+'help','Psychrometrics','en_US')
+chdir(path);
+chdir(path+'help');
+xmltojar(path+'help','Psychrometrics','en_US');
 
-add_help_chapter("Psychrometrics",path)
+add_help_chapter("Psychrometrics",path);
