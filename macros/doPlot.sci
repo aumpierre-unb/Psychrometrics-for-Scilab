@@ -32,7 +32,7 @@ function doPlot()
         i=max(winsid())+1
     end
     scf(i)
-    scf(i).anti_aliasing='16x'
+    scf(i).anti_aliasing="16x"
     for i=1:size(uv,2)/2
         plot(uv(:,2*(i-1)+1),uv(:,2*(i-1)+2),"-.g","linewidth",1.2)
     end
