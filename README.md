@@ -273,7 +273,7 @@ psychro(h=79.5e3,phi=.29,fig=%t) // inputs and outputs in SI units
 Compute the humidity of humid air at atmospheric pressure given water vapor pressure is 1 kPa at 1 atm total pressure:
 
 ```powershell-interactive
-pw=1e3 // water vapor pressure in Pa
+pw=1e3; // water vapor pressure in Pa
 W=humidity(pw) // saturation pressure in kg/kg of dry air
 ```
 
@@ -292,7 +292,7 @@ W=humidity(pw) // saturation pressure in kg/kg of dry air
 Compute the saturation pressure given the dry bulb temperature is 25 °C:
 
 ```powershell-interactive
-Tdry=25+273.15 // dry bulb temperature in K
+Tdry=25+273.15; // dry bulb temperature in K
 psat=satPress(Tdry) // saturation pressure in Pa
 ```
 
@@ -311,8 +311,8 @@ psat=satPress(Tdry) // saturation pressure in Pa
 CCompute the specific enthalpy given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air:
 
 ```powershell-interactive
-Tdry=25+273.15 // dry bulb temperature in K
-W=7e-3 // humidity in kg/kg of dry air
+Tdry=25+273.15; // dry bulb temperature in K
+W=7e-3; // humidity in kg/kg of dry air
 h=enthalpy(Tdry,W) // specific enthalpy in J/kg of dry air
 ```
 
@@ -331,8 +331,8 @@ h=enthalpy(Tdry,W) // specific enthalpy in J/kg of dry air
 CCompute the specific volume given the dry bulb temperature is 25 °C and the humidity is 7 g/kg of dry air at 1 atm total pressure:
 
 ```powershell-interactive
-Tdry=25+273.15 // dry bulb temperature in K
-W=7e-3 // humidity in kg/kg of dry air
+Tdry=25+273.15; // dry bulb temperature in K
+W=7e-3; // humidity in kg/kg of dry air
 v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
 ```
 
@@ -351,7 +351,8 @@ v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
 Compute the temperature and the humidity at saturation condition given the specific enthalpy 82.4 kJ/kg of dry air and plot a graphical representation of the answer in a schematic psychrometric chart:
 
 ```powershell-interactive
-[T,W]=adiabSat(h=82.4e3,fig=%t) # inputs and outputs in SI units
+h=82.4e3; // enthalpy in J/kg dry air
+[T,W]=adiabSat(h,%t) // inputs and outputs in SI units
 ```
 
 ### See Also
