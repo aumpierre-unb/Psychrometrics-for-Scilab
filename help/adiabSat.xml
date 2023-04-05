@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>adiabSat</refname>
-    <refpurpose>adiabSat computes the saturation temperature and humidity given the specific enthalpy</refpurpose>
+    <refpurpose>adiabSat computes temperature and the humidity at saturation condition given the specific enthalpy</refpurpose>
   </refnamediv>
 
 
