@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>psychro</refname>
-    <refpurpose>psychro computes the properties of humid air given any two parâmeters that configure a permanent state.</refpurpose>
+    <refpurpose>psychro computes the properties of humid air given any two parameters that configure a steady state.</refpurpose>
   </refnamediv>
 
 

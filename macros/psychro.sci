@@ -14,7 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
-    // psychro computes the properties of humid air given any two parâmeters that configure a permanent state.
+    // psychro computes the properties of humid air given any two parameters that configure a steady state.
     //
     // Syntax
     // [Tdry,Twet,Tdew,Tadiab,W,Wsat,Wsatwet,Wadiab,h,v,phi,pw,psat,psatwet,rho]=psychro(Tdry,Twet,Tdew,W,h,v,phi,fig)
