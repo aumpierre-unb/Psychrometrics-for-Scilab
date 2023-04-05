@@ -4,7 +4,7 @@ Title: Psychrometrics Toolbox for Scilab
 
 Summary: A toolbox for psychrometrics
 
-Version: 0.1.2
+Version: 0.1.3
 
 Author: Alexandre Umpierre
 
@@ -22,7 +22,7 @@ ScilabVersion: >= 6.0
 
 Depends: 
 
-Date: 2023-04-04
+Date: 2023-04-05
 
 Description: This package provides provides
  a set of functions to compute

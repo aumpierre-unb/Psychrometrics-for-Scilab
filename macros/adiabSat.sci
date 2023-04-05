@@ -14,7 +14,7 @@
 // It is also available at www.gnu.org/licenses/.
 
 function [Tadiab,Wadiab]=adiabSat(h,fig)
-    // adiabSat computes the saturation temperature and humidity given the specific entalpy
+    // adiabSat computes temperature and the humidity at saturation condition given the specific enthalpy
     //
     // Syntax
     // [Tadiab,Wadiab]=adiabSat(h,fig)
@@ -29,7 +29,7 @@ function [Tadiab,Wadiab]=adiabSat(h,fig)
     // adiabSat computes
     // the saturation temperature Tadiab (in K)
     // and humidity Wadiab (in kg/kg of dry air)
-    // given the specific entalpy h (in J/kg of dry air).
+    // given the specific enthalpy h (in J/kg of dry air).
     // If the optional argument fig = %t is given,
     // a schematic psychrometric chart pops up with
     // a graphical representation of the stationary state.

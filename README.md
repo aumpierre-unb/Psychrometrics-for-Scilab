@@ -338,7 +338,7 @@ v=volume(Tdry,W) // specific volume in cu. m/kg of dry air
 
 ### `adiabSat`
 
-`adiabSat` computes the saturation temperature and humidity given the specific entalpy. A schematic psychrometric chart can the presented as a graphical representation of the solution.
+`adiabSat` Compute the temperature and the humidity at saturation condition given the specific enthalpy. A schematic psychrometric chart can the presented as a graphical representation of the solution.
 
 **Syntax:**
 

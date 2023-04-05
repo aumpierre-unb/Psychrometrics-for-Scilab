@@ -17,7 +17,7 @@
 
   <refnamediv>
     <refname>adiabSat</refname>
-    <refpurpose>adiabSat computes the saturation temperature and humidity given the specific entalpy</refpurpose>
+    <refpurpose>adiabSat computes the saturation temperature and humidity given the specific enthalpy</refpurpose>
   </refnamediv>
 
 
@@ -57,7 +57,7 @@
 adiabSat computes
 the saturation temperature Tadiab (in K)
 and humidity Wadiab (in kg/kg of dry air)
-given the specific entalpy h (in J/kg of dry air).
+given the specific enthalpy h (in J/kg of dry air).
 If the optional argument fig = %t is given,
 a schematic psychrometric chart pops up with
 a graphical representation of the stationary state.
