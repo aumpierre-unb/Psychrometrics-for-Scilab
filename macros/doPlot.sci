@@ -27,11 +27,11 @@
 function doPlot()
     exec(get_absolute_file_path()+"plotData.sci",-1)
     if winsid()==[]
-        i=0
+        j=0
     else
-        i=max(winsid())+1
+        j=max(winsid())+1
     end
-    scf(i).anti_aliasing="16x"
+    scf(j).anti_aliasing="16x"
     for i=1:size(uv,2)/2
         plot(uv(:,2*(i-1)+1),uv(:,2*(i-1)+2),"-.","color","green3","linewidth",1.2)
     end
@@ -60,8 +60,7 @@ function doPlot()
     ylabel("Humidity (kg vapor / kg dry air)")
     gca().data_bounds=[0+273.15 60+273.15 0 .03]
     gca().tight_limits=["on","on"];
-    gca().grid=[1,1]
-    gca().grid_style=[9,9]
+    gca().box="off"
     gca().y_location="right"
-    gcf().figure_size=[800,800]
+    gcf().figure_size=[750,750]
 end
