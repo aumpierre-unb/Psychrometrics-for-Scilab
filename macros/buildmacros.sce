@@ -1,10 +1,10 @@
 // Copyright (C) 2022 2023 Alexandre Umpierre
-// This file is part of internal-fluid-flow Toolbox.
-// internal-fluid-flow Toolbox is free software:
+// This file is part of psyhrometrics Toolbox.
+// psyhrometrics Toolbox is free software:
 // you can redistribute it and/or modify it under the terms
 // of the GNU General Public License (GPL) version 3
 // as published by the Free Software Foundation.
-// internal-fluid-flow Toolbox is distributed in the hope
+// psyhrometrics Toolbox is distributed in the hope
 // that it will be useful, but WITHOUT ANY WARRANTY;
 // without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
