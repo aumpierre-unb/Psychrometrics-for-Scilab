@@ -184,7 +184,7 @@ As the saturation of air in ice and water is negligible, the water vapor pressur
 The specific volume and the specific enthalpy (volume and enthalpy of the gaseous phase per unit of mass of dry air) are given by
 
 $$
-v = {{0.287042\ (t_dry + 273.15)\ (1 + 1.607858\ W)} \over p}
+v = {0.287042\ (t_dry + 273.15)\ (1 + 1.607858\ W)} \over p
 $$
 
 $$
