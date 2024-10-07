@@ -359,6 +359,6 @@ h=82.4e3; // enthalpy in J/kg dry air
 
 [Internal-Fluid-Flow-for-Scilab](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-Scilab).
 
-Copyright &copy; 2023 Alexandre Umpierre
+Copyright &copy; 2023 2024 Alexandre Umpierre
 
 email: aumpierre@gmail.com
